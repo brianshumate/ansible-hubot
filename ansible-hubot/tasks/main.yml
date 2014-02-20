@@ -1,0 +1,86 @@
+---
+# File: tasks/main.yml - Tasks for Hubot role
+
+- name: Update OS package cache
+  sudo: True
+  apt: update-cache=yes
+  tags:
+    - system_packages
+
+- name: Install OS packages
+  sudo: True
+  apt: "pkg={{ item }} state=installed"
+  with_items: hubot_os_packages
+  tags:
+    - system_packages
+
+- name: Install Node Version Manager
+  sudo: False
+  git: "repo=https://github.com/creationix/nvm.git dest={{ hubot_nvm_dir }}"
+  tags:
+    - node_packages
+
+- name: Install Node.js
+  sudo: False
+  shell: ". {{ hubot_nvm_dir }}/nvm.sh && nvm install {{ hubot_node_version }} creates={{ hubot_node_dir }} executable=/bin/bash"
+  tags:
+    - node_packages
+
+- name: Clone Hubot repository
+  sudo: False
+  git: "repo=git://github.com/github/hubot.git dest={{ hubot_src_dir }}"
+
+- name: Install Hubot base
+  sudo: False
+  command: "{{ hubot_node_dir }}/npm install chdir={{ hubot_src_dir }}"
+
+- name: Install CoffeeScript
+  sudo: False
+  command: "{{ hubot_node_dir }}/npm install -g coffee-script creates={{ hubot_node_dir }}/coffee"
+  tags:
+    - node_packages
+
+- name: Assemble Hubot
+  sudo: False
+  shell: ". {{ hubot_nvm_dir }}/nvm.sh && nvm use {{ hubot_node_version }} && make package chdir={{ hubot_src_dir }} executable=/bin/bash"
+
+- name: Decommission old Hubot
+  sudo: False
+  file: "path={{ hubot_dir }} state=absent"
+
+- name: Activate new Hubot
+  sudo: False
+  command: " mv {{ hubot_src_dir }}/hubot {{hubot_dir}}/"
+
+- name: Install Hubot script dependencies
+  sudo: False
+  command: "{{ hubot_node_dir }}/npm install chdir={{ hubot_dir }}"
+  command: "{{ hubot_node_dir }}/npm install {{ item }} chdir={{ hubot_dir }} creates={{ hubot_dir }}/node_modules/{{ item }}"
+  with_items: hubot_node_packages
+  tags:
+    - node_packages
+
+- name: Define Hubot environment
+  sudo: False
+  template: "src=_hubot.env.j2 dest={{ hubot_dir }}/{{ hubot_identity }}.env"
+  tags:
+    - hubot_environment
+
+- name: Create upstart script
+  sudo: True
+  template: "src=start_hubot.sh.j2 dest={{ hubot_dir }}/start_hubot.sh mode=0744"
+
+- name: Create hubot-scripts.json
+  sudo: False
+  template: "src=hubot-scripts.json.j2 dest={{ hubot_dir }}/hubot-scripts.json"
+  tags: hubot_scripts
+
+- name: Create upstart configuration
+  sudo: True
+  template: src=hubot.conf.j2 dest=/etc/init/hubot.conf
+
+- name: Start Hubot
+  sudo: True
+  service: name=hubot state=started
+  tags:
+    - hubot_service

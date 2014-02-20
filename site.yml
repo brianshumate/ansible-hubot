@@ -1,0 +1,9 @@
+---
+# File: site.yml - Hubot playbook for Vagrant based instance
+
+- name: Hubot activate!
+  hosts: hubot
+  sudo: True
+  gather_facts: False
+  roles:
+  - { role: ansible-hubot, hubot_identity: yoshibot }
