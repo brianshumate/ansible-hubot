@@ -1,0 +1,12 @@
+---
+# handlers/main.yml Handlers for Hubot role
+
+- name: restart hubot
+  service: name=hubot state=restarted
+
+- name: start hubot
+  service: name=hubot state=started
+
+- name: stop hubot
+  service: name=hubot state=stopped
+

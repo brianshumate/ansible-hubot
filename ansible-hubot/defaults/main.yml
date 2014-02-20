@@ -1,0 +1,35 @@
+---
+# File: defaults/main.yml - Default variables for Hubot role
+
+#############################################################################
+#
+# hubot_adapter:       Specify preferred chat adapter to use
+# hubot_identity:      The bot's identity or short username
+# hubot_node_version:  Preferred Node.js version
+# hubot_node_packages: List of Node.js dependency packages to install
+# hubot_os_packages:   List of OS dependency packages to install
+#
+#############################################################################
+
+hubot_adapter: hipchat
+
+hubot_identity: hubot
+
+hubot_node_version: 0.10.25
+
+hubot_node_packages:
+  - cleverbot-node
+  - htmlparser
+  - nodepie
+  - soupselect
+  - hubot-hipchat
+  - hubot-scripts
+
+hubot_os_packages:
+  - build-essential
+  - curl
+  - fortune-mod
+  - git-core
+  - libssl-dev
+  - libexpat1-dev
+  - redis-server

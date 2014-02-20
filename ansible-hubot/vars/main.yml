@@ -1,0 +1,52 @@
+---
+# File: vars/main.yml - Variables for Hubot role
+
+#############################################################################
+#
+# hubot_admin:          OS user account of Hubot owner
+# hubot_nvm_dir:        Directory for Node Version Manager (nvm) installation
+# hubot_node_dir:       Directory for Node.js installation
+# hubot_src_dir:        Directory for Hubot source code
+# hubot_dir:            The Hubot root directory
+# hubot_scripts:        A list of additional Hubot scripts to use
+#
+#############################################################################
+
+hubot_admin: vagrant
+hubot_nvm_dir: "/home/{{ hubot_admin }}/nvm"
+hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}/bin"
+hubot_src_dir: "/home/{{ hubot_admin }}/src/hubot"
+hubot_dir: "/home/{{ hubot_admin }}/hubot"
+hubot_scripts:
+  - achievement_unlocked.coffee
+  - ackbar.coffee
+  - applause.coffee
+  - ascii.coffee
+  - base64.coffee
+  - bees.coffee
+  - botsnack.coffee
+  - cat.coffee
+  - cleverbot.coffee
+  - coin.coffee
+  - cowsay.coffee
+  - dealwithit.coffee
+  - decide.coffee
+  - fortune.coffee
+  - github-status.coffee
+  - grumpycat.coffee
+  - hackernews.coffee
+  - megusta.coffee
+  - penny-arcade.coffee
+  - ping.coffee
+  - redis-brain
+  - reddit
+  - reddit-jokes.coffee
+  - reddit-random-top.coffee
+  - remind.coffee
+  - shipit.coffee
+  - stallman.coffee
+  - twss
+  - wunderground.coffee
+  - xkcd.coffee
+  - zombies.coffee
+

@@ -1,0 +1,11 @@
+## directories
+.vagrant
+
+## files
+
+.DS_Store
+.tm_properties
+_hubot.env.j2
+hosts
+node_modules
+npm-debug.log
