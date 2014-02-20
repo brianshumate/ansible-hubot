@@ -1,16 +1,16 @@
 ---
 galaxy_info:
-  author: your name
-  description: 
-  company: your company (optional)
-  license: license (GPLv2, CC-BY, etc)
-  min_ansible_version: 1.2
+  author: Brian Shumate
+  description: Hubot role
+  company:
+  license: Apache 2
+  min_ansible_version: 1.4
   #
   # Below are all platforms currently available. Just uncomment
-  # the ones that apply to your role. If you don't see your 
+  # the ones that apply to your role. If you don't see your
   # platform on this list, let us know and we'll get it added!
   #
-  #platforms:
+  platforms:
   #- name: EL
   #  versions:
   #  - all
@@ -52,8 +52,8 @@ galaxy_info:
   #  - 9.1
   #  - 9.1
   #  - 9.2
-  #- name: Ubuntu
-  #  versions:
+  - name: Ubuntu
+    versions:
   #  - all
   #  - lucid
   #  - maverick
@@ -61,7 +61,7 @@ galaxy_info:
   #  - oneiric
   #  - precise
   #  - quantal
-  #  - raring
+    - raring
   #  - saucy
   #  - trusty
   #- name: SLES
@@ -88,7 +88,7 @@ galaxy_info:
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
   #
-  #categories:
+  categories:
   #- cloud
   #- cloud:ec2
   #- cloud:gce
@@ -98,7 +98,7 @@ galaxy_info:
   #- database:sql
   #- development
   #- monitoring
-  #- networking
+  - networking
   #- packaging
   #- system
   #- web
@@ -107,4 +107,4 @@ dependencies: []
   # dependencies available via galaxy should be listed here.
   # Be sure to remove the '[]' above if you add dependencies
   # to this list.
-  
+
