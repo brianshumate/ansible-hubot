@@ -123,12 +123,15 @@ Then, copy `ansible-hubot/templates/hubot.env.j2` to
 `ansible-hubot/templates/_hubot.env.j2` and update as
 necessary with the particular environment variables you need for your Hubot.
 
-Finally, copy `hosts.example` to `hosts` and edit it to update the values
-for your Hubot host. Be sure to change the following values:
+Copy `hosts.example` to `hosts` and edit it to update the values for your
+Hubot host. Be sure to change the following values:
 
 * `0.0.0.0`
 * `ubuntu`
 * `~/.ssh/hubot_id`
+
+Finally, update the `site.yml` playbook if you plan to use it and set
+`hubot_identity` to the short username of your bot.
 
 ## Example Playbook
 

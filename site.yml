@@ -6,4 +6,4 @@
   sudo: True
   gather_facts: False
   roles:
-  - { role: ansible-hubot, hubot_identity: yoshibot }
+  - { role: ansible-hubot, hubot_identity: hubot }
