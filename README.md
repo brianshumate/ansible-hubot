@@ -18,7 +18,7 @@ function on Ubuntu with the following specific software versions:
 * Ansible: 1.4.5
 * Hubot: GitHub Master
 * Node.js: 0.10.25
-* Ubuntu: 13.04 (Raring Ringtail)
+* Ubuntu: 13.10, 13.04, 12.10
 
 ## Role Variables
 

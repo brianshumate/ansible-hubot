@@ -6,8 +6,8 @@
 
 VAGRANTFILE_API_VERSION = "2"
 BOX_MEM = ENV['BOX_MEM'] || "1536"
-BOX_NAME =  ENV['BOX_NAME'] || "salamander64"
-BOX_URI = ENV['BOX_URI'] || "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
+BOX_NAME =  ENV['BOX_NAME'] || "ringtail64"
+BOX_URI = ENV['BOX_URI'] || "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.04_chef-provisionerless.box"
 BOT_HOST = ENV['BOT_HOST'] || "vagrant_hosts"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
