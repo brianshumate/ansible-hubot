@@ -6,4 +6,4 @@
   sudo: True
   gather_facts: False
   roles:
-  - { role: brianshumate.hubot, hubot_identity: hubot }
+  - { role: brianshumate.Hubot, hubot_identity: hubot }
