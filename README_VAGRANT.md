@@ -33,7 +33,7 @@ At a minimum, visit the variables defined in the following files:
 * `vars/main.yml`
 
 There is more information in the main project
-[README]() about these variables.
+[README](README.md) about these variables.
 
 Then, copy `templates/hubot.env.j2` to `templates/_hubot.env.j2` and update as
 necessary with the particular environment variables you need for your Hubot.
