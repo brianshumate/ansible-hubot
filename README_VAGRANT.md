@@ -39,6 +39,9 @@ Then, copy `ansible-hubot/templates/hubot.env.j2` to
 `ansible-hubot/templates/_hubot.env.j2` and update as
 necessary with the particular environment variables you need for your Hubot.
 
+Finally, update the `site.yml` playbook if you plan to use it and set
+`hubot_identity` to the short username of your bot.
+
 ### Hubot Activate!
 
 After configuring your Hubot's environment variables, you should be able to
