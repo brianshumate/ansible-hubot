@@ -119,8 +119,7 @@ necessary:
 * `defaults/main.yml`
 * `vars/main.yml`
 
-Then, copy `ansible-hubot/templates/hubot.env.j2` to
-`ansible-hubot/templates/_hubot.env.j2` and update as
+Then, copy `templates/hubot.env.j2` to `templates/_hubot.env.j2` and update as
 necessary with the particular environment variables you need for your Hubot.
 
 Copy `hosts.example` to `hosts` and edit it to update the values for your

@@ -35,8 +35,7 @@ At a minimum, visit the variables defined in the following files:
 There is more information in the main project
 [README]() about these variables.
 
-Then, copy `ansible-hubot/templates/hubot.env.j2` to
-`ansible-hubot/templates/_hubot.env.j2` and update as
+Then, copy `templates/hubot.env.j2` to `templates/_hubot.env.j2` and update as
 necessary with the particular environment variables you need for your Hubot.
 
 Finally, update the `site.yml` playbook if you plan to use it and set
@@ -48,7 +47,6 @@ After configuring your Hubot's environment variables, you should be able to
 bootstrap the bot using a virtualenv with commands like following:
 
 ```
-cd ansible-hubot
 mkvirtualenv ansible
 pip install ansible
 vagrant up
