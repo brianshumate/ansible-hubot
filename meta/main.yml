@@ -60,7 +60,7 @@ galaxy_info:
   #  - natty
   #  - oneiric
   #  - precise
-  #  - quantal
+    - quantal
     - raring
     - saucy
   #  - trusty
