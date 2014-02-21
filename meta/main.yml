@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Brian Shumate
-  description: Hubot role
+  description: "Role for Hubot, a delightful chat bot"
   company:
   license: Apache 2
   min_ansible_version: 1.4
@@ -59,7 +59,7 @@ galaxy_info:
   #  - maverick
   #  - natty
   #  - oneiric
-  #  - precise
+    - precise
     - quantal
     - raring
     - saucy

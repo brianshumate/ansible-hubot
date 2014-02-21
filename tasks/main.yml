@@ -73,6 +73,8 @@
 - name: Create hubot-scripts.json
   sudo: False
   template: "src=hubot-scripts.json.j2 dest={{ hubot_dir }}/hubot-scripts.json"
+  notify:
+    - restart hubot
   tags: hubot_scripts
 
 - name: Create upstart configuration
