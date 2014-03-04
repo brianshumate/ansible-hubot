@@ -8,6 +8,18 @@ By default this Hubot connects to HipChat, but that can be changed by editing
 `defaults/main.yml`, updating the value of *hubot_adapter*, and adding the
 appropriate environment variables to `templates/hubot.env.j2`.
 
+## Requirements
+
+This Hubot role requires a Debian based Linux host and has been tested to
+function on Ubuntu with the following specific software versions:
+
+* Ansible: 1.5
+* VirtualBox: 4.3.8
+* Vagrant: 1.4.3
+* Hubot: GitHub Master
+* Node.js: 0.10.25
+* Ubuntu: 13.10, 13.04, 12.10, 12.04
+
 ## Hubot Acclimate!
 
 Follow these directions for a Hubot development deployment on Mac OS X
