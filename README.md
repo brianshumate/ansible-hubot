@@ -35,8 +35,8 @@ All variables are specified in `defaults/main.yml` and `vars/main.yml`.
 | hubot_os_packages   | List | List of OS dependency packages to install |
 
 The following Node.js dependency packages are defined in
-`hubot_node_packages` and installed by default to support the default
-additional Hubot scripts:
+`hubot_node_packages` and installed by default to support the additional Hubot
+scripts included in this role:
 
 * cleverbot-node
 * htmlparser
