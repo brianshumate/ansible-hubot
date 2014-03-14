@@ -15,7 +15,7 @@ hubot_adapter: hipchat
 
 hubot_identity: hubot
 
-hubot_node_version: 0.10.25
+hubot_node_version: 0.10.26
 
 hubot_node_packages:
   - cleverbot-node
@@ -28,8 +28,8 @@ hubot_node_packages:
 hubot_os_packages:
   - build-essential
   - curl
-  - fortune-mod
   - git-core
   - libssl-dev
   - libexpat1-dev
   - redis-server
+
