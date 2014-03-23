@@ -10,6 +10,6 @@ respawn
 respawn limit 5 60
 
 script
-  exec {{ hubot_dir }}/start_hubot.sh
+  exec sudo -i -u {{ hubot_admin }} {{ hubot_dir }}/start_hubot.sh
 end script
 

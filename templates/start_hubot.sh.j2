@@ -11,5 +11,5 @@ nvm use {{ hubot_node_version }}
 cd {{ hubot_dir }}
 . {{ hubot_identity }}.env
 
-exec sudo -u {{ hubot_admin }} bin/hubot --adapter {{ hubot_adapter }}
+bin/hubot --adapter {{ hubot_adapter }}
 
