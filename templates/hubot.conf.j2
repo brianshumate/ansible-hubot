@@ -1,6 +1,7 @@
 #
 # File: hubot.conf - Upstart configuration script for Hubot
 #
+# FIXME: This could use some improvement
 
 description "hubot"
 
@@ -10,6 +11,5 @@ respawn
 respawn limit 5 60
 
 script
-  exec {{ hubot_dir }}/start_hubot.sh
+  exec sudo -i -u {{ hubot_admin }} {{ hubot_dir }}/bin/start-hubot
 end script
-

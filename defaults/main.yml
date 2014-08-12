@@ -1,35 +1,61 @@
 ---
-# File: defaults/main.yml - Default variables for Hubot role
+# File: defaults/main.yml - Global Hubot variables
 
 #############################################################################
 #
-# hubot_adapter:       Specify preferred chat adapter to use
-# hubot_identity:      The bot's identity or short username
-# hubot_node_version:  Preferred Node.js version
-# hubot_node_packages: List of Node.js dependency packages to install
-# hubot_os_packages:   List of OS dependency packages to install
+# hubot_admin: Change to the user account that will run the bot; for
+# operating in development mode with Vagrant, this value should be "vagrant".
+# hubot_dir: Change to the home directory for the bot
+# hubot_nvm_dir: Node Version Manager installation root directory
+# hubot_node_dir: Node.js installation root directory
+# hubot_src_dir: Hubot source directory
+# hubot_identity: Change to a different short user name if necessary
+# hubot_node_version: Node.js version to use
+# hubot_node_packages: Node.js dependencies
+# hubot_os_packages: OS dependencies
 #
 #############################################################################
+
+hubot_admin: vagrant
 
 hubot_adapter: hipchat
 
-hubot_identity: hubot
+hubot_dir: "/home/{{ hubot_admin }}/hubot"
 
-hubot_node_version: 0.10.25
+hubot_nvm_dir: "/home/{{ hubot_admin }}/nvm"
+
+hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
+
+hubot_src_dir: "/home/{{ hubot_admin }}/src/hubot"
+
+hubot_identity: couchbot
+
+hubot_node_version: 0.10.30
 
 hubot_node_packages:
+  - cheerio
+  - clark
   - cleverbot-node
   - htmlparser
-  - nodepie
-  - soupselect
+  - hubot-calculator
   - hubot-hipchat
+  - hubot-hipchat-emoticons
   - hubot-scripts
+  - nodepie
+  - querystring
+  - redis@0.8.4
+  - soupselect
 
 hubot_os_packages:
-  - build-essential
   - curl
-  - fortune-mod
-  - git-core
-  - libssl-dev
-  - libexpat1-dev
+  - expat
+  - git
+  - libicu-dev
+  - openssl
   - redis-server
+
+hubot_all_dirs:
+    - "{{ hubot_dir }}"
+    - "{{ hubot_nvm_dir }}"
+    - "{{ hubot_src_dir }}"
+    - "/home/{{ hubot_admin }}/.npm"

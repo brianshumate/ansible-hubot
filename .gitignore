@@ -5,6 +5,7 @@
 
 .DS_Store
 .tm_properties
+.vagrant
 _hubot.env.j2
 hosts
 node_modules

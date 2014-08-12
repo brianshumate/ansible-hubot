@@ -9,4 +9,3 @@
 
 - name: stop hubot
   service: name=hubot state=stopped
-
