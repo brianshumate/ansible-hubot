@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# File: templates/hubot.init.j2 - Hubot init script template for CentOS/RHEL
+
+HUBOT_ROOT={{ hubot_dir }}
+HUBOT_HOME="$HUBOT_ROOT/node_modules/hubot"
+DAEMON={{ hubot_dir }}/bin/hubot-hipchat
+DAEMONOPTS=""
+DAEMONVARS=""
+NAME={{ hubot_identity }}
+USER={{ hubot_admin }}
+DESC={{ hubot_identity }}
+LOG={{ hubot_dir }}/hubot.log
+PIDFILE=/var/run/$NAME.pid
+SCRIPTNAME=/etc/init.d/$NAME
+
+case "$1" in
+start)
+        echo "Starting couchbot"
+        #. $HUBOT_ROOT/bin/.hubotrc
+        /sbin/start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile -d $HUBOT_ROOT --exec $DAEMON
+        echo "."
+        ;;
+debug)
+        echo "Debugging couchbot"
+        #. $HUBOT_ROOT/bin/.hubotrc
+        /sbin/start-stop-daemon --start --pidfile $PIDFILE --make-pidfile -d $HUBOT_ROOT --exec $DAEMON
+        echo "."
+        ;;
+stop)
+        echo "Stopping couchbot"
+        /sbin/start-stop-daemon --stop --pidfile $PIDFILE
+        echo "."
+        ;;
+restart)
+        echo "Restarting couchbot"
+        /sbin/start-stop-daemon --stop --pidfile $PIDFILE
+        #. $HUBOT_ROOT/bin/.hubotrc
+        /sbin/start-stop-daemon --start --pidfile $PIDFILE --make-pidfile --background -d $HUBOT_ROOT --exec $DAEMON
+        echo "."
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|debug}" >&2
+        exit 1
+        ;;
+    esac
+    exit

@@ -3,20 +3,10 @@
 
 #############################################################################
 #
-# hubot_admin:          OS user account of Hubot owner
-# hubot_nvm_dir:        Directory for Node Version Manager (nvm) installation
-# hubot_node_dir:       Directory for Node.js installation
-# hubot_src_dir:        Directory for Hubot source code
-# hubot_dir:            The Hubot root directory
 # hubot_scripts:        A list of additional Hubot scripts to use
 #
 #############################################################################
 
-hubot_admin: vagrant
-hubot_nvm_dir: "/home/{{ hubot_admin }}/nvm"
-hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}/bin"
-hubot_src_dir: "/home/{{ hubot_admin }}/src/hubot"
-hubot_dir: "/home/{{ hubot_admin }}/hubot"
 hubot_scripts:
   - achievement_unlocked.coffee
   - ackbar.coffee
@@ -49,4 +39,3 @@ hubot_scripts:
   - wunderground.coffee
   - xkcd.coffee
   - zombies.coffee
-

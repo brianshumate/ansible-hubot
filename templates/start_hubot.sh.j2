@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# File: start_hubot.sh.j2 - A startup script template for Hubot
+# File: start-hubot.sh.j2 - A startup script template for Hubot
 #
 
 # Start Hubot in the background
@@ -11,5 +11,4 @@ nvm use {{ hubot_node_version }}
 cd {{ hubot_dir }}
 . {{ hubot_identity }}.env
 
-bin/hubot --adapter {{ hubot_adapter }}
-
+bin/hubot --adapter {{ hubot_adapter }} >> {{ hubot_dir }}/log/hubot.log 2>&1
