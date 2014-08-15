@@ -14,7 +14,7 @@
 
 - name: Install Node Version Manager
   sudo: False
-  git: "repo=https://github.com/creationix/nvm.git dest={{ hubot_nvm_dir }}"
+  git: "repo=https://github.com/creationix/nvm.git dest={{ hubot_nvm_dir }} accept_hostkey=yes"
   tags:
     - node_nvm
 
@@ -25,7 +25,7 @@
 
 - name: Clone Hubot repository
   sudo: False
-  git: "repo=git://github.com/github/hubot.git dest={{ hubot_src_dir }}"
+  git: "repo=git://github.com/github/hubot.git dest={{ hubot_src_dir }} accept_hostkey=yes"
   tags: hubot_src
 
 - name: Install Hubot base
