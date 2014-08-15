@@ -1,5 +1,5 @@
 ---
-# File: roles/hubot/tasks.yml - Hubot role tasks
+# File: tasks/main.yml - Hubot role tasks
 
 - name: Install OS packages
   sudo: True
@@ -8,10 +8,6 @@
   tags:
     - system_packages
 
-- name: Start Redis
-  sudo: True
-  service: name=redis-server state=started
-
 - name: Install Node Version Manager
   sudo: False
   git: "repo=https://github.com/creationix/nvm.git dest={{ hubot_nvm_dir }} accept_hostkey=yes"
@@ -19,6 +15,7 @@
     - node_nvm
 
 - name: Install Node.js
+  sudo: False
   shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm install {{ hubot_node_version }} creates={{ hubot_node_dir }} executable=/bin/bash"
   tags:
     - node_packages
@@ -34,7 +31,7 @@
 
 - name: Install CoffeeScript
   sudo: False
-  npm: "name=coffee-script global=yes executable={{ hubot_node_dir }}/bin/npm state=present"
+  npm: "name=coffee-script executable={{ hubot_node_dir }}/bin/npm path={{ hubot_dir }} state=present"
   tags:
     - node_packages
 
@@ -104,6 +101,10 @@
   with_items: hubot_all_dirs
   tags:
     - hubot_environment
+
+- name: Start Redis
+  sudo: True
+  service: name=redis-server state=started
 
 - name: Install Upstart script
   sudo: True

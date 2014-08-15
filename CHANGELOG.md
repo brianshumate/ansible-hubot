@@ -14,3 +14,9 @@
 ## v1.0.3
 
 - Revert accept host key
+
+## v1.0.4
+
+- Fix directory ownership issues
+- Added missing files scripts
+- Documentation updates
