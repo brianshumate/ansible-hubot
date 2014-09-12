@@ -20,7 +20,7 @@ hubot_admin: vagrant
 
 hubot_adapter: hipchat
 
-hubot_node_version: 0.10.30
+hubot_node_version: 0.10.31
 
 hubot_dir: "/home/{{ hubot_admin }}/hubot"
 
@@ -30,7 +30,7 @@ hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
 
 hubot_src_dir: "/home/{{ hubot_admin }}/src/hubot"
 
-hubot_identity: couchbot
+hubot_identity: hubot
 
 hubot_node_packages:
   - cheerio
@@ -59,4 +59,3 @@ hubot_all_dirs:
     - "{{ hubot_nvm_dir }}"
     - "{{ hubot_src_dir }}"
     - "/home/{{ hubot_admin }}/.npm"
-

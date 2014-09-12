@@ -20,3 +20,8 @@
 - Fix directory ownership issues
 - Added missing files scripts
 - Documentation updates
+
+## v1.0.5
+
+- Updated tested software versions
+- Updated documentation
