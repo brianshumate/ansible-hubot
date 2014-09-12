@@ -30,7 +30,7 @@ hubot_src_dir: "/home/{{ hubot_admin }}/src/hubot"
 
 hubot_identity: couchbot
 
-hubot_node_version: 0.10.30
+hubot_node_version: 0.10.31
 
 hubot_node_packages:
   - cheerio
