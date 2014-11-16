@@ -20,7 +20,7 @@ hubot_admin: vagrant
 
 hubot_adapter: hipchat
 
-hubot_node_version: 0.10.31
+hubot_node_version: 0.10.33
 
 hubot_dir: "/home/{{ hubot_admin }}/hubot"
 

@@ -25,3 +25,8 @@
 
 - Updated tested software versions
 - Updated documentation
+
+## v1.0.6
+
+- Updated tested software versions
+- Updated documentation
