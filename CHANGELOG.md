@@ -30,3 +30,7 @@
 
 - Updated tested software versions
 - Updated documentation
+
+## v1.0.7
+
+- Support for new Hubot Yeoman deployment method

@@ -12,6 +12,7 @@
 # hubot_identity: Change to a different short user name if necessary
 # hubot_node_version: Node.js version to use
 # hubot_node_packages: Node.js dependencies
+# hubot_global_node_packages: Gloable Node.js dependencies
 # hubot_os_packages: OS dependencies
 #
 #############################################################################
@@ -32,19 +33,24 @@ hubot_src_dir: "/home/{{ hubot_admin }}/src/hubot"
 
 hubot_identity: hubot
 
+hubot_owner: Brian Shumate <brian@brianshumate.com>
+
+hubot_description: "A funny chatting robot"
+
 hubot_node_packages:
   - cheerio
   - clark
   - cleverbot-node
   - htmlparser
   - hubot-calculator
-  - hubot-hipchat
-  - hubot-hipchat-emoticons
-  - hubot-scripts
   - nodepie
   - querystring
-  - redis@0.8.4
   - soupselect
+
+hubot_global_node_packages:
+  - coffee-script
+  - yo
+  - generator-hubot
 
 hubot_os_packages:
   - curl

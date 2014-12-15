@@ -15,9 +15,9 @@ changed by editing `defaults/main.yml`, updating the value of
 This Hubot role requires a Debian based Linux host and has been tested to
 function on Ubuntu with the following specific software versions:
 
-* Ansible: 1.7
+* Ansible: 1.7.2
 * Hubot: GitHub Master
-* Node.js: 0.10.31
+* Node.js: 0.10.33
 * Ubuntu: 13.10, 13.04, 12.10, 12.04
 
 ## Role Variables
@@ -35,6 +35,7 @@ All variables are specified in `defaults/main.yml` and `vars/main.yml`.
 | hubot_os_packages   | List | List of OS dependency packages to install |
 | hubot_node_version | 0.10.25 | Preferred Node.js version |
 | hubot_node_packages | List | List of Node.js dependency packages to install |
+| hubot_global_node_packages | List | List of Node.js dependency packages to install globally
 | hubot_nvm_dir  | /home/{{ hubot_admin }}/nvm | Directory for Node Version Manager (nvm) installation |
 | hubot_node_dir | {{ hubot_nvm_dir }}/v{{ hubot_node_version }}/bin | Directory for Node.js installation
 | hubot_src_dir | /home/{{ hubot_admin }}/src/hubot | Directory for Hubot source code

@@ -20,24 +20,45 @@
   tags:
     - node_packages
 
-- name: Clone Hubot repository
-  sudo: False
-  git: "repo=git://github.com/github/hubot.git dest={{ hubot_src_dir }} accept_hostkey=yes"
-  tags: hubot_src
+#- name: Clone Hubot repository
+#  sudo: False
+#  git: "repo=git://github.com/github/hubot.git dest={{ hubot_src_dir }} accept_hostkey=yes"
+#  tags: hubot_src
 
-- name: Install Hubot base
-  sudo: False
-  npm: "path={{ hubot_src_dir }} executable={{ hubot_node_dir }}/bin/npm state=present"
+#- name: Install Hubot base
+#  sudo: False
+#  npm: "path={{ hubot_src_dir }} executable={{ hubot_node_dir }}/bin/npm state=present"
 
-- name: Install CoffeeScript
+- name: Install hubot global dependencies
   sudo: False
-  npm: "name=coffee-script executable={{ hubot_node_dir }}/bin/npm path={{ hubot_dir }} state=present"
+  npm: "name={{ item }} executable={{ hubot_node_dir }}/bin/npm path={{ hubot_dir }} state=present global=yes"
+  with_items: hubot_global_node_packages
   tags:
     - node_packages
 
+#- name: Install CoffeeScript
+#  sudo: False
+#  npm: "name=coffee-script executable={{ hubot_node_dir }}/bin/npm path={{ hubot_dir }} state=present"
+#  tags:
+    - node_packages
+
+#- name: Assemble Hubot
+#  sudo: False
+#  shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm use {{ hubot_node_version }} && make package chdir={{ hubot_src_dir }} executable=/bin/bash"
+
+- name: Install Yo Answers
+  template: "src=yo-hubot-input.txt.j2 dest={{ hubot_src_dir }}/yo-hubot-input.txt"
+
 - name: Assemble Hubot
   sudo: False
-  shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm use {{ hubot_node_version }} && make package chdir={{ hubot_src_dir }} executable=/bin/bash"
+  shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm use {{ hubot_node_version }} && yo hubot < yo-hubot-input.txt chdir={{ hubot_src_dir }} executable=/bin/bash"
+
+- name: Install hubot dependencies
+  sudo: False
+  npm: "name={{ item }} executable={{ hubot_node_dir }}/bin/npm path={{ hubot_dir }} state=present"
+  with_items: hubot_node_packages
+  tags:
+    - node_packages
 
 - name: Decommission previous model
   sudo: True
@@ -47,23 +68,17 @@
   sudo: False
   command: " mv {{ hubot_src_dir }}/hubot {{ hubot_dir }}/"
 
-- name: Install hubot dependencies
-  sudo: False
-  npm: "name={{ item }} executable={{ hubot_node_dir }}/bin/npm path={{ hubot_dir }} state=present"
-  with_items: hubot_node_packages
-  tags:
-    - node_packages
-
-- name: Update package status
-  shell: "source {{ hubot_nvm_dir }}/nvm.sh && {{ hubot_node_dir }}/bin/npm update --save chdir={{ hubot_dir }} executable=/bin/bash"
-  tags:
-    - node_packages
+#- name: Update package status
+#  sudo: False
+#  shell: "source {{ hubot_nvm_dir }}/nvm.sh && {{ hubot_node_dir }}/bin/npm update --save chdir={{ hubot_dir }} executable=/bin/bash"
+#  tags:
+#    - node_packages
 
 - name: Define Hubot environment
   sudo: False
   template: "src=_hubot.env.j2 dest={{ hubot_dir }}/{{ hubot_identity }}.env"
-  notify:
-    - restart hubot
+#  notify:
+#    - restart hubot
   tags:
     - hubot_environment
 
