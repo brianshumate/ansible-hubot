@@ -53,6 +53,7 @@ hubot_os_packages:
   - libicu-dev
   - openssl
   - redis-server
+  - build-essential
 
 hubot_all_dirs:
     - "{{ hubot_dir }}"
