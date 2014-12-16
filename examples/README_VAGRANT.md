@@ -13,8 +13,8 @@ appropriate environment variables to `templates/hubot.env.j2`.
 This Hubot role requires a Debian based Linux host and has been tested to
 function on Ubuntu with the following specific software versions:
 
-* Ansible: 1.7.2
-* VirtualBox: 4.3.18
+* Ansible: 1.8.2
+* VirtualBox: 4.3.20
 * Vagrant: 1.6.5
 * Hubot: GitHub Master
 * Node.js: 0.10.33

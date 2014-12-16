@@ -31,6 +31,10 @@
 - Updated tested software versions
 - Updated documentation
 
-## v1.0.7
+## v1.1.0
 
 - Support for new Hubot Yeoman deployment method
+- Using hashicorp/precise64 box for vagrant builds
+- Tasks cleanup
+- Updated supported versions
+- Updated documentation
