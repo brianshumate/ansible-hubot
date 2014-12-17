@@ -1,0 +1,101 @@
+---
+# File: tasks/Debian.yml - Ansible Hubot Debian specific role tasks
+
+- name: Install OS packages
+  sudo: True
+  apt: "name={{ item }} update_cache=yes"
+  with_items: hubot_debian_os_packages
+  tags:
+    - system_packages
+
+- name: Install Node Version Manager
+  sudo: False
+  git: "repo=https://github.com/creationix/nvm.git dest={{ hubot_nvm_dir }} accept_hostkey=yes"
+  tags:
+    - node_nvm
+
+- name: Install Node.js
+  sudo: False
+  shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm install {{ hubot_node_version }} creates={{ hubot_node_dir }} executable=/bin/bash"
+  tags:
+    - node_packages
+
+- name: Install hubot global dependencies
+  sudo: False
+  npm: "name={{ item }} executable={{ hubot_node_dir }}/bin/npm path={{ hubot_dir }} state=present global=yes"
+  with_items: hubot_global_node_packages
+  tags:
+    - node_packages
+
+- name: Decommission previous model
+  sudo: True
+  file: "path={{ hubot_dir }} state=absent"
+
+- name: Hubot home directory
+  file: "path={{ hubot_dir }} state=directory owner={{ hubot_admin }} group={{ hubot_admin }}"
+  tags:
+    - hubot_environment
+
+- name: Assemble Hubot
+  sudo: False
+  shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm use {{ hubot_node_version }} && echo 'n' | yo hubot --adapter={{ hubot_adapter }} --owner={{ hubot_owner }} --name={{ hubot_identity }} --description={{ hubot_description }} --defaults chdir={{ hubot_dir }} executable=/bin/bash"
+
+- name: Install hubot dependencies
+  sudo: False
+  npm: "name={{ item }} executable={{ hubot_node_dir }}/bin/npm path={{ hubot_dir }} state=present"
+  with_items: hubot_node_packages
+  tags:
+    - node_packages
+
+- name: Define Hubot environment
+  sudo: False
+  template: "src=_hubot.env.j2 dest={{ hubot_dir }}/{{ hubot_identity }}.env"
+  tags:
+    - hubot_environment
+
+- name: Install Hubot start script
+  sudo: False
+  template: "src=start-hubot.sh.j2 dest={{ hubot_dir }}/bin/start-hubot mode=0744"
+
+- name: Install Hubot scripts
+  sudo: False
+  copy: "src=scripts/ dest={{ hubot_dir }}/scripts owner={{ hubot_admin }} mode=0644"
+  tags:
+    - hubot_scripts
+
+- name: Configure Hubot scripts
+  sudo: False
+  template: "src=hubot-scripts.json.j2 dest={{ hubot_dir }}/hubot-scripts.json"
+  tags:
+    - hubot_scripts
+  notify:
+    - restart hubot
+
+- name: Configure Hubot external scripts
+  sudo: False
+  copy: "src=external-scripts.json dest={{ hubot_dir }}/external-scripts.json owner={{ hubot_admin }} group={{ hubot_admin }} mode=0644"
+  tags: hubot_scripts
+
+- name: Hubot log directory
+  file: "path={{ hubot_dir }}/log state=directory owner={{ hubot_admin }} group={{ hubot_admin }}"
+  tags:
+    - hubot_environment
+
+- name: Hubot home ownership
+  sudo: True
+  file: "path={{ item }} owner={{ hubot_admin }} group={{ hubot_admin }} recurse=yes"
+  with_items: hubot_all_dirs
+  tags:
+    - hubot_environment
+
+- name: Start Redis
+  sudo: True
+  service: name=redis-server state=started
+
+- name: Install Upstart script
+  sudo: True
+  template: "src=hubot.conf.j2 dest=/etc/init/hubot.conf mode=0644"
+  notify:
+    - restart hubot
+  tags:
+    - hubot_service

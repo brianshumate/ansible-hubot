@@ -38,3 +38,8 @@
 - Tasks cleanup
 - Updated supported versions
 - Updated documentation
+
+## 1.2.0
+
+- Added initial support for RHEL/CentOS for brianshumate/ansible-hubot/issues/2
+- Updated documentation

@@ -1,0 +1,21 @@
+---
+# File: vars/RedHat.yml - Ansible Hubot Red Hat specific variables
+
+#############################################################################
+#
+# epel_package: EPEL reposiory package file name
+# epel_url: EPEL repository URL
+# hubot_redhat_os_packages: A list of operating system packages to install
+#
+#############################################################################
+
+epel_package: epel-release-6-8.noarch.rpm
+epel_url: "http://dl.fedoraproject.org/pub/epel/6/x86_64/{{ epel_package }}"
+
+hubot_redhat_os_packages:
+  - curl
+  - git
+  - libicu-devel
+  - openssl-devel
+  - expat-devel
+  - redis

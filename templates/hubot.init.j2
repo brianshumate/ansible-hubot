@@ -1,47 +1,62 @@
-#!/bin/sh
+#!/bin/bash
+# couchbot
+# chkconfig: 345 20 80
+# description: hubot
+# processname: hubot
 
-# File: templates/hubot.init.j2 - Hubot init script template for CentOS/RHEL
-
-HUBOT_ROOT={{ hubot_dir }}
-HUBOT_HOME="$HUBOT_ROOT/node_modules/hubot"
-DAEMON={{ hubot_dir }}/bin/hubot-hipchat
-DAEMONOPTS=""
-DAEMONVARS=""
+DAEMON={{ hubot_dir }}/bin/start-hubot
 NAME={{ hubot_identity }}
 USER={{ hubot_admin }}
 DESC={{ hubot_identity }}
-LOG={{ hubot_dir }}/hubot.log
+LOG=/var/log/hubot.log
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
 case "$1" in
 start)
-        echo "Starting couchbot"
-        #. $HUBOT_ROOT/bin/.hubotrc
-        /sbin/start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile -d $HUBOT_ROOT --exec $DAEMON
-        echo "."
-        ;;
-debug)
-        echo "Debugging couchbot"
-        #. $HUBOT_ROOT/bin/.hubotrc
-        /sbin/start-stop-daemon --start --pidfile $PIDFILE --make-pidfile -d $HUBOT_ROOT --exec $DAEMON
-        echo "."
-        ;;
+	printf "%-50s" "Starting $DESC..."
+  if [ ! -e $LOG ]; then touch $LOG && chown {{ hubot_admin }} $LOG
+  fi
+    PID=`runuser -c "$DAEMON" - $USER  >> $LOG 2>&1 & echo $!`
+	echo "Saving PID" $PID " to " $PIDFILE
+        if [ -z $PID ]; then
+            printf "%s\n" "Fail"
+        else
+            echo $PID > $PIDFILE
+            printf "%s\n" "Ok"
+        fi
+;;
+status)
+        printf "%-50s" "Checking $DESC..."
+        if [ -f $PIDFILE ]; then
+            PID=`cat $PIDFILE`
+            if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
+                printf "%s\n" "Process dead but pidfile exists"
+            else
+                echo "Running"
+            fi
+        else
+            printf "%s\n" "Service not running"
+        fi
+;;
 stop)
-        echo "Stopping couchbot"
-        /sbin/start-stop-daemon --stop --pidfile $PIDFILE
-        echo "."
-        ;;
+        printf "%-50s" "Stopping $DESC"
+            PID=`cat $PIDFILE`
+        if [ -f $PIDFILE ]; then
+            kill $PID
+            printf "%s\n" "Ok"
+            rm -f $PIDFILE
+        else
+            printf "%s\n" "pidfile not found"
+        fi
+;;
+
 restart)
-        echo "Restarting couchbot"
-        /sbin/start-stop-daemon --stop --pidfile $PIDFILE
-        #. $HUBOT_ROOT/bin/.hubotrc
-        /sbin/start-stop-daemon --start --pidfile $PIDFILE --make-pidfile --background -d $HUBOT_ROOT --exec $DAEMON
-        echo "."
-        ;;
-    *)
-        echo "Usage: $0 {start|stop|restart|debug}" >&2
+  	$0 stop
+  	$0 start
+;;
+
+*)
+        echo "Usage: $0 {status|start|stop|restart}"
         exit 1
-        ;;
-    esac
-    exit
+esac

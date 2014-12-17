@@ -63,3 +63,12 @@ mkvirtualenv ansible
 pip install ansible
 vagrant up
 ```
+
+If you'd prefer to install on CentOS, you can specify a different Vagrant
+box as an environment variable like so:
+
+```
+mkvirtualenv ansible
+pip install ansible
+BOX_NAME="chef/centos-6.5" vagrant up
+```

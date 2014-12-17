@@ -28,16 +28,18 @@ All variables are specified in `defaults/main.yml` and `vars/main.yml`.
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| hubot_adapter  | hipchat       | Specify preferred chat adapter to use |
 | hubot_admin    | vagrant       | OS username of Hubot owner/admin |
-| hubot_dir      | `/home/<hubot_admin>/hubot` | The Hubot base directory |
-| hubot_identity | hubot         | The bot's identity or short username |
-| hubot_os_packages   | List | List of OS dependency packages to install |
+| hubot_adapter  | hipchat       | Specify preferred chat adapter to use |
 | hubot_node_version | 0.10.25 | Preferred Node.js version |
+| hubot_dir      | `/home/<hubot_admin>/hubot` | The Hubot base directory |
+| hubot_nvm_dir  | /home/{{ hubot_admin }}/nvm | Directory for Node Version Manager (nvm) installation |
+| hubot_node_dir | {{ hubot_nvm_dir }}/v{{ hubot_node_version }}/bin |
+| hubot_identity | hubot         | The bot's identity or short username |
+| hubot_description | "'A funny chatting robot'" | Description of bot |
+| hubot_owner | "'Stephie Andretti <stephie@example.com>'" | Name of bot owner |
 | hubot_node_packages | List | List of Node.js dependency packages to install |
 | hubot_global_node_packages | List | List of Node.js dependency packages to install globally
-| hubot_nvm_dir  | /home/{{ hubot_admin }}/nvm | Directory for Node Version Manager (nvm) installation |
-| hubot_node_dir | {{ hubot_nvm_dir }}/v{{ hubot_node_version }}/bin | Directory for Node.js installation
+| hubot_all_dirs | List | List of directories owned by Hubot admin user
 
 The following Node.js dependency packages are defined in
 `hubot_node_packages` and installed by default to support the additional Hubot
@@ -71,6 +73,10 @@ which is a dependency of the Hubot `redis-brain` script.
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
+| epel_package:  | `epel-release-6-8.noarch.rpm` | EPEL reposiory package file name |
+| epel_url:      | "http://dl.fedoraproject.org/pub/epel/6/x86_64/{{ epel_package }}" | EPEL repository URL |
+| hubot_debian_os_packages | List | List of Debian/Ubuntu specific OS packages to install
+| hubot_redhat_os_packages | List | List of Red Hat/CentOS specific OS packages to install
 |hubot_scripts | List | A list of additional Hubot scripts to use
 
 The following relatively conservative additional Hubot scripts befitting

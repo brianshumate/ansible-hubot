@@ -4,6 +4,5 @@
 - name: Hubot activate!
   hosts: hubot
   sudo: True
-  gather_facts: False
   roles:
-  - { role: brianshumate.Hubot, hubot_identity: hubot }
+  - { role: brianshumate.hubot, hubot_identity: hubot }

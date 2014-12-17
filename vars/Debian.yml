@@ -1,0 +1,17 @@
+---
+# File: vars/Debian.yml - Ansible Hubot Debian specific variables
+
+#############################################################################
+#
+# hubot_debian_os_packages: A list of operating system packages to install
+#
+#############################################################################
+
+hubot_debian_os_packages:
+  - curl
+  - expat
+  - git
+  - libicu-dev
+  - openssl
+  - redis-server
+  - build-essential

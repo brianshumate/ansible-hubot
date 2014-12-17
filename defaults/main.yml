@@ -1,18 +1,22 @@
 ---
-# File: defaults/main.yml - Global Hubot variables
+# File: defaults/main.yml - Ansible Hubot main variables
 
 #############################################################################
 #
-# hubot_admin: Change to the user account that will run the bot; for
-# operating in development mode with Vagrant, this value should be "vagrant".
-# hubot_dir: Change to the home directory for the bot
-# hubot_nvm_dir: Node Version Manager installation root directory
-# hubot_node_dir: Node.js installation root directory
-# hubot_identity: Change to a different short user name if necessary
-# hubot_node_version: Node.js version to use
-# hubot_node_packages: Node.js dependencies
-# hubot_global_node_packages: Gloable Node.js dependencies
-# hubot_os_packages: OS dependencies
+# hubot_admin:                User account that will run the bot; for
+#                             operating in development mode with Vagrant,
+#                             this value should be "vagrant".
+# hubot_adapter:              Hubot chat adapter to use
+# hubot_node_version:         Node.js version to use
+# hubot_dir:                  Bot home directory
+# hubot_nvm_dir:              Node Version Manager installation root directory
+# hubot_node_dir:             Node.js installation root directory
+# hubot_identity:             Bot user name
+# hubot_description:          Description of bot
+# hubot_owner:                Name of bot owner
+# hubot_node_packages:        Node.js dependencies
+# hubot_global_node_packages: Gloabl Node.js dependencies
+# hubot_all_dirs:             List of directories owned by Hubot admin user
 #
 #############################################################################
 
@@ -30,7 +34,7 @@ hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
 
 hubot_identity: hubot
 
-hubot_owner: "'Brian Shumate <brian@brianshumate.com>'"
+hubot_owner: "'Stephie Andretti <stephie@example.com>'"
 
 hubot_description: "'A funny chatting robot'"
 
@@ -42,7 +46,6 @@ hubot_node_packages:
   - hubot-calculator
   - hubot-hipchat-emoticons
   - nodepie
-  - querystring
   - soupselect
 
 hubot_global_node_packages:
@@ -51,15 +54,6 @@ hubot_global_node_packages:
 # install the arguments branch test
   - 'git+https://github.com/github/generator-hubot.git#arguments'
 #  - generator-hubot
-
-hubot_os_packages:
-  - curl
-  - expat
-  - git
-  - libicu-dev
-  - openssl
-  - redis-server
-  - build-essential
 
 hubot_all_dirs:
   - "{{ hubot_dir }}"
