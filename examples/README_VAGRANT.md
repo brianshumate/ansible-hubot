@@ -18,6 +18,7 @@ function on Ubuntu with the following specific software versions:
 * Vagrant: 1.6.5
 * Hubot: GitHub Master
 * Node.js: 0.10.33
+* CentOS/RHEL 6
 * Ubuntu: 13.10, 13.04, 12.10, 12.04
 
 ## Hubot Acclimate!

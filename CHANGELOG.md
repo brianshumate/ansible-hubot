@@ -43,3 +43,8 @@
 
 - Added initial support for RHEL/CentOS for brianshumate/ansible-hubot/issues/2
 - Updated documentation
+
+## 1.2.1
+
+- Tidied external scripts
+- Updated documentation

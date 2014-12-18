@@ -18,6 +18,7 @@ function on Ubuntu with the following specific software versions:
 * Ansible: 1.8.2
 * Hubot: GitHub Master
 * Node.js: 0.10.33
+* CentOS/RHEL 6
 * Ubuntu: 13.10, 13.04, 12.10, 12.04
 
 ## Role Variables
@@ -93,7 +94,6 @@ part of `vars/main.yml` and installed by default:
 * cat.coffee
 * cleverbot.coffee
 * coin.coffee
-* cowsay.coffee
 * dealwithit.coffee
 * decide.coffee
 * fortune.coffee
@@ -101,14 +101,12 @@ part of `vars/main.yml` and installed by default:
 * grumpycat.coffee
 * hackernews.coffee
 * megusta.coffee
-* penny-arcade.coffee
 * ping.coffee
 * redis-brain
 * reddit
 * reddit-jokes.coffee
 * reddit-random-top.coffee
 * remind.coffee
-* shipit.coffee
 * stallman.coffee
 * twss
 * wunderground.coffee
@@ -145,6 +143,13 @@ using the included `site.yml` playbook:
 
 ```
 ansible-playbook -i hosts site.yml
+```
+
+You can also simply pass variables in using the `--extra-vars` option
+to the `ansible-playbook` command:
+
+```
+ansible-playbook -i hosts site.yml --extra-vars "hubot_admin=penelope hubot_adapter=slack hubot_identity=penelope hubot_owner='Penelope <penelope@example.com>' hubot_description='A stunning mermaid bot'"
 ```
 
 ## Dependencies
