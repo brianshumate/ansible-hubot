@@ -60,3 +60,7 @@
 
 - Fixed custom scripts variable inclusion
 - Updated documentation
+
+## 1.2.4
+
+- Use generator-hubot release 0.2.0

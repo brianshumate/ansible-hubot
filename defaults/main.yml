@@ -28,9 +28,7 @@ hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
 hubot_global_node_packages:
   - coffee-script
   - yo
-# install the arguments branch test
-  - 'git+https://github.com/github/generator-hubot.git#arguments'
-#  - generator-hubot
+  - generator-hubot
 
 hubot_all_dirs:
   - "{{ hubot_dir }}"
