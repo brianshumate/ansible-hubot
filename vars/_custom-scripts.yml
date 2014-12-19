@@ -1,12 +1,12 @@
 ---
 # File: vars/_custom-scripts.yml - Ansible Hubot custom scripts
-#       rename this file to custom-scripts.yml and list your own preferred
+#       copy this file to custom-scripts.yml and list your own preferred
 #       additional custom scripts and they will be installed as part of the
 #       hubot_scripts tagged tasks.
 
 #############################################################################
 #
-# hubot_scripts:        A list of additional Hubot scripts to use
+# hubot_scripts: A list of additional Hubot scripts to use
 #
 #############################################################################
 

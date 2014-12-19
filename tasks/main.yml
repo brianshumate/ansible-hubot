@@ -4,6 +4,12 @@
 - name: Use OS specific variables
   include_vars: "{{ ansible_os_family }}.yml"
 
+- name: Special Hubot scripts
+  include_vars: "{{ item }}"
+  with_first_found:
+   - "custom-scripts.yml"
+   - "_custom-scripts.yml"
+
 # CentOS/RHEL tasks
 - include: RedHat.yml
   when: ansible_os_family  == "RedHat"

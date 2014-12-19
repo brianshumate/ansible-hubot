@@ -40,10 +40,13 @@ These tools are optional, but highly recommended:
 
 ### Hubot Configurate!
 
-At a minimum, visit the variables defined in the following files:
+At a minimum, visit the variables defined in the following file:
+
+* `vars/main.yml`
+
+There are also some variables which usually should not need modification in:
 
 * `defaults/main.yml`
-* `vars/main.yml`
 
 There is more information in the main project
 [README](README.md) about these variables.
@@ -51,8 +54,14 @@ There is more information in the main project
 Then, copy `templates/hubot.env.j2` to `templates/_hubot.env.j2` and update as
 necessary with the particular environment variables you need for your Hubot.
 
-Finally, update the `site.yml` playbook if you plan to use it and set
-`hubot_identity` to the short username of your bot.
+Finally, update the `site.yml` playbook if you plan to use it and set the
+following:
+
+* `hubot_adapter`: Adapter for your chat service (default is 'hipchat')
+* `hubot_admin` : Operating system username of your bot owner
+* `hubot_owner` : Admin name (e.g., "'Stephie Andretti <stephie@example.com>'")
+* `hubot_identity` : Short username for your bot
+* `hubot_description` : A description for your bot
 
 ### Hubot Activate!
 

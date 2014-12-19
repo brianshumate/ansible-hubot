@@ -55,3 +55,8 @@
 - Fixed external scripts
 - Moved additional script collection to private variables
 - Updated documentation
+
+## 1.2.3
+
+- Fixed custom scripts variable inclusion
+- Updated documentation
