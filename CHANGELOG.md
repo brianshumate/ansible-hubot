@@ -46,6 +46,12 @@
 
 ## 1.2.1
 
+- Tidied external scripts
+- Added slack variable
+- Updated documentation
+
+## 1.2.2
+
 - Fixed external scripts
 - Moved additional script collection to private variables
 - Updated documentation
