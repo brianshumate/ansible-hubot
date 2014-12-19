@@ -21,7 +21,7 @@ hubot_node_version: 0.10.33
 
 hubot_dir: "/home/{{ hubot_admin }}/hubot"
 
-hubot_nvm_dir: "/home/{{ hubot_admin }}/nvm"
+hubot_nvm_dir: "/home/{{ hubot_admin }}/.nvm"
 
 hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
 

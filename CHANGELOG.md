@@ -64,3 +64,8 @@
 ## 1.2.4
 
 - Use generator-hubot release 0.2.0
+
+## 1.2.5
+
+- Install NVM to expected directory (`~/.nvm`)
+- Updated documentation

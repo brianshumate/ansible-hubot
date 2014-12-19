@@ -29,10 +29,10 @@ All variables are specified in `defaults/main.yml` and `vars/main.yml`.
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| hubot_node_version | 0.10.25 | Preferred Node.js version |
+| hubot_node_version | 0.10.33 | Preferred Node.js version |
 | hubot_dir      | `/home/<hubot_admin>/hubot` | The Hubot base directory |
-| hubot_nvm_dir  | /home/{{ hubot_admin }}/nvm | Directory for Node Version Manager (nvm) installation |
-| hubot_node_dir | {{ hubot_nvm_dir }}/v{{ hubot_node_version }}/bin |
+| hubot_nvm_dir  | `/home/<hubot_admin>/.nvm` | Directory for Node Version Manager (nvm) installation |
+| hubot_node_dir | `/home/<hubot_admin>/.nvm/v0.10.33/bin` |
 | hubot_identity | hubot         | The bot's identity or short username |
 | hubot_global_node_packages | List | List of Node.js dependency packages to install globally
 | hubot_all_dirs | List | List of directories owned by Hubot admin user
