@@ -1,38 +1,36 @@
 ---
-# File: vars/main.yml - Variables for Hubot role
+# File: vars/main.yml - Ansible Hubot common variables
 
 #############################################################################
 #
-# hubot_scripts:        A list of additional Hubot scripts to use
+# hubot_admin:                User account that will run the bot; for
+#                             operating in development mode with Vagrant,
+#                             this value should be "vagrant".
+# hubot_adapter:              Hubot chat adapter to use
+# hubot_identity:             Bot user name
+# hubot_description:          Description of bot
+# hubot_owner:                Name of bot owner
+# hubot_node_packages:        Node.js dependencies
 #
 #############################################################################
 
-hubot_scripts:
-  - achievement_unlocked.coffee
-  - ackbar.coffee
-  - applause.coffee
-  - ascii.coffee
-  - base64.coffee
-  - bees.coffee
-  - botsnack.coffee
-  - cat.coffee
-  - cleverbot.coffee
-  - coin.coffee
-  - dealwithit.coffee
-  - decide.coffee
-  - fortune.coffee
-  - github-status.coffee
-  - grumpycat.coffee
-  - hackernews.coffee
-  - megusta.coffee
-  - ping.coffee
-  - redis-brain
-  - reddit
-  - reddit-jokes.coffee
-  - reddit-random-top.coffee
-  - remind.coffee
-  - stallman.coffee
-  - twss
-  - wunderground.coffee
-  - xkcd.coffee
-  - zombies.coffee
+hubot_admin: vagrant
+
+hubot_adapter: hipchat
+
+hubot_identity: hubot
+
+hubot_owner: "'Stephie Andretti <stephie@example.com>'"
+
+hubot_description: "'A funny chatting robot'"
+
+hubot_node_packages:
+  - cheerio
+  - clark
+  - cleverbot-node
+  - htmlparser
+  - hubot-calculator
+  - hubot-hipchat-emoticons
+  - nodepie
+  - soupselect
+

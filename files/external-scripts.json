@@ -1,1 +1,12 @@
-["hubot-calculator", "hubot-hipchat-emoticons"]
+[
+  "hubot-calculator",
+  "hubot-diagnostics",
+  "hubot-help",
+  "hubot-hipchat-emoticons",
+  "hubot-google-images",
+  "hubot-maps",
+  "hubot-redis-brain",
+  "hubot-rules",
+  "hubot-google-translate",
+  "hubot-youtube"
+]

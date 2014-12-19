@@ -1,6 +1,9 @@
 ---
 # File: tasks/Debian.yml - Ansible Hubot Debian specific role tasks
 
+vars_files:
+  - [ "vars/custom-scripts.yml", "vars/_custom-scripts.yml" ]
+
 - name: Install OS packages
   sudo: True
   apt: "name={{ item }} update_cache=yes"

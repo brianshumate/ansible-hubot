@@ -1,6 +1,9 @@
 ---
 # File: tasks/RedHat.yml - Ansible Hubot Red Hat specific role tasks
 
+vars_files:
+  - [ "vars/custom-scripts.yml", "vars/_custom-scripts.yml" ]
+
 - name: SELinux Python Module
   yum: name=libselinux-python state=present
   tags: installation

@@ -1,12 +1,8 @@
 ---
-# File: defaults/main.yml - Ansible Hubot main variables
+# File: defaults/main.yml - Ansible Hubot default variables
 
 #############################################################################
 #
-# hubot_admin:                User account that will run the bot; for
-#                             operating in development mode with Vagrant,
-#                             this value should be "vagrant".
-# hubot_adapter:              Hubot chat adapter to use
 # hubot_node_version:         Node.js version to use
 # hubot_dir:                  Bot home directory
 # hubot_nvm_dir:              Node Version Manager installation root directory
@@ -20,9 +16,6 @@
 #
 #############################################################################
 
-hubot_admin: vagrant
-
-hubot_adapter: hipchat
 
 hubot_node_version: 0.10.33
 
@@ -31,22 +24,6 @@ hubot_dir: "/home/{{ hubot_admin }}/hubot"
 hubot_nvm_dir: "/home/{{ hubot_admin }}/nvm"
 
 hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
-
-hubot_identity: hubot
-
-hubot_owner: "'Stephie Andretti <stephie@example.com>'"
-
-hubot_description: "'A funny chatting robot'"
-
-hubot_node_packages:
-  - cheerio
-  - clark
-  - cleverbot-node
-  - htmlparser
-  - hubot-calculator
-  - hubot-hipchat-emoticons
-  - nodepie
-  - soupselect
 
 hubot_global_node_packages:
   - coffee-script

@@ -46,5 +46,6 @@
 
 ## 1.2.1
 
-- Tidied external scripts
+- Fixed external scripts
+- Moved additional script collection to private variables
 - Updated documentation
