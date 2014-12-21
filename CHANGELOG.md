@@ -39,33 +39,37 @@
 - Updated supported versions
 - Updated documentation
 
-## 1.2.0
+## v1.2.0
 
 - Added initial support for RHEL/CentOS for brianshumate/ansible-hubot/issues/2
 - Updated documentation
 
-## 1.2.1
+## v1.2.1
 
 - Tidied external scripts
 - Added slack variable
 - Updated documentation
 
-## 1.2.2
+## v1.2.2
 
 - Fixed external scripts
 - Moved additional script collection to private variables
 - Updated documentation
 
-## 1.2.3
+## v1.2.3
 
 - Fixed custom scripts variable inclusion
 - Updated documentation
 
-## 1.2.4
+## v1.2.4
 
 - Use generator-hubot release 0.2.0
 
-## 1.2.5
+## v1.2.5
 
 - Install NVM to expected directory (`~/.nvm`)
+- Updated documentation
+
+## 1.2.6
+
 - Updated documentation

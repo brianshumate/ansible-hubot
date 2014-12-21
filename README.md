@@ -6,14 +6,15 @@ to bring your team much delight and various values of increased productivity
 throughout the livelong day!
 
 By default this Hubot is configured for HipChat, but that can be easily
-changed by editing `defaults/main.yml`, updating the value of
+changed by editing `vars/main.yml`, updating the value of
 *hubot_adapter*, and adding the appropriate environment variables to
-`templates/hubot.env.j2`.
+`templates/_hubot.env.j2`.
 
 ## Requirements
 
-This Hubot role requires a Debian based Linux host and has been tested to
-function on Ubuntu with the following specific software versions:
+This Hubot role requires a Debian or RHEL based Linux host and has been
+tested to function on Ubuntu and CentOS with the following specific
+software versions:
 
 * Ansible: 1.8.2
 * Hubot: GitHub Master
@@ -41,16 +42,18 @@ The following Node.js dependency packages are defined in
 `hubot_node_packages` and installed by default to support the additional Hubot
 scripts included in this role:
 
+* cheerio
+* clark
 * cleverbot-node
 * htmlparser
+* hubot-calculator
+* hubot-hipchat-emoticons
 * nodepie
 * soupselect
-* hubot-hipchat
-* hubot-scripts
 
-If you add more Hubot scripts to the list defined in the **Variables**
-section, be sure to add any Node.js dependencies required by the scripts
-to the `hubot_node_packages` list as well.
+If you add more Hubot scripts to the your own `_custom-scripts.yml` file,
+be sure to add any Node.js dependencies required by the scripts
+to the `hubot_node_packages` variable list as well.
 
 The following OS dependency packages are defined in `hubot_os_packages` and
 installed by default:
@@ -170,4 +173,3 @@ Apache 2
 ## Author Information
 
 [Brian Shumate](http://brianshumate.com)
-
