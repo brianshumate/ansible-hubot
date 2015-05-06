@@ -8,6 +8,7 @@
 
 - name: Hubot activate!
   hosts: hubot
+  gather_facts: True
   sudo: True
   roles:
   - { role: brianshumate.hubot, hubot_adapter: hipchat, hubot_admin: stephie, hubot_owner: "'Stephie Andretti <stephie@example.com>'", hubot_identity: yoshi, hubot_description: Awesomeness }
