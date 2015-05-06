@@ -12,14 +12,14 @@ changed by editing `vars/main.yml`, updating the value of
 
 ## Requirements
 
-This Hubot role requires a Debian or RHEL based Linux host and has been
+This Hubot role requires a Ubuntu or CentOS based Linux host and has been
 tested to function on Ubuntu and CentOS with the following specific
 software versions:
 
 * Ansible: 1.8.2
 * Hubot: GitHub Master
 * Node.js: 0.10.33
-* CentOS/RHEL 6
+* CentOS: 6
 * Ubuntu: 13.10, 13.04, 12.10, 12.04
 
 ## Role Variables

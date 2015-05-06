@@ -73,3 +73,14 @@
 ## 1.2.6
 
 - Updated documentation
+
+## 1.2.7
+
+- Update Vagrantfile
+
+## 1.2.8
+
+- Updated for new private_key location
+- Switch to ansible_os_distribution variable
+- Rename tasks
+- Update documentation
