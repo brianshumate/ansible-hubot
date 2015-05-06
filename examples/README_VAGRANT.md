@@ -17,7 +17,7 @@ function on Ubuntu with the following specific software versions:
 * VirtualBox: 4.3.26
 * Vagrant: 1.7.2
 * Hubot: GitHub Master
-* Node.js: 0.12.2
+* Node.js: 0.10.36
 * CentOS/RHEL 6
 * Ubuntu: 13.10, 13.04, 12.10, 12.04
 

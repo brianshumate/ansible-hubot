@@ -18,7 +18,7 @@ software versions:
 
 * Ansible: 1.9.1
 * Hubot: GitHub Master
-* Node.js: 0.12.2
+* Node.js: 0.10.36
 * CentOS: 6
 * Ubuntu: 13.10, 13.04, 12.10, 12.04
 
@@ -30,7 +30,7 @@ All variables are specified in `defaults/main.yml` and `vars/main.yml`.
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| hubot_node_version | 0.12.2 | Preferred Node.js version |
+| hubot_node_version | 0.10.36 | Preferred Node.js version |
 | hubot_dir      | `/home/<hubot_admin>/hubot` | The Hubot base directory |
 | hubot_nvm_dir  | `/home/<hubot_admin>/.nvm` | Directory for Node Version Manager (nvm) installation |
 | hubot_node_dir | `/home/<hubot_admin>/.nvm/v0.10.33/bin` |

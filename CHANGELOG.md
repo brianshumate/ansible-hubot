@@ -84,3 +84,4 @@
 - Switch to ansible_os_distribution variable
 - Rename tasks
 - Update documentation
+- Minimal hubot_custom_scripts variable (hi RMS)

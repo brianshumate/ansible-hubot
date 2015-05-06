@@ -18,6 +18,9 @@ hubot_admin: vagrant
 
 hubot_adapter: hipchat
 
+hubot_custom_scripts:
+  - stallman.coffee
+
 hubot_identity: hubot
 
 hubot_owner: "'Stephie Andretti <stephie@example.com>'"
