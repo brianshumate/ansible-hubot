@@ -79,8 +79,8 @@ which is a dependency of the Hubot `redis-brain` script.
 | hubot_node_packages | List | List of Node.js dependency packages to install |
 | epel_package  | `epel-release-6-8.noarch.rpm` | EPEL reposiory package file name |
 | epel_url      | "http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" | EPEL repository URL |
-| hubot_debian_os_packages | List | List of Debian/Ubuntu specific OS packages to install
-| hubot_redhat_os_packages | List | List of Red Hat/CentOS specific OS packages to install
+| hubot_ubuntu_os_packages | List | List of Ubuntu specific OS packages to install
+| hubot_centos_os_packages | List | List of CentOS specific OS packages to install
 |hubot_custom_scripts | List | A list of additional Hubot scripts to use
 
 You can enable additional Hubot scripts by *copying*

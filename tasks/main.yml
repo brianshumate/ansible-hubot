@@ -11,9 +11,9 @@
    - "_custom-scripts.yml"
 
 # CentOS tasks
-- include: RedHat.yml
+- include: CentOS.yml
   when: ansible_os_distribution  == "CentOS"
 
 # Ubuntu tasks
-- include: Debian.yml
+- include: Ubuntu.yml
   when: ansible_os_distribution  == "Ubuntu"
