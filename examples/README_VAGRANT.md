@@ -19,7 +19,7 @@ function on Ubuntu with the following specific software versions:
 * Hubot: GitHub Master
 * Node.js: 0.10.36
 * CentOS/RHEL 6
-* Ubuntu: 13.10, 13.04, 12.10, 12.04
+* Ubuntu: 14.04, 13.10, 13.04, 12.10, 12.04
 
 ## Hubot Acclimate!
 

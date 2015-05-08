@@ -6,7 +6,7 @@
 
 VAGRANTFILE_API_VERSION = "2"
 BOX_MEM = ENV['BOX_MEM'] || "1536"
-BOX_NAME =  ENV['BOX_NAME'] || "hashicorp/precise64"
+BOX_NAME =  ENV['BOX_NAME'] || "ubuntu/trusty64"
 BOT_HOST = ENV['BOT_HOST'] || "vagrant_hosts"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|

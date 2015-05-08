@@ -70,18 +70,23 @@
 - Install NVM to expected directory (`~/.nvm`)
 - Updated documentation
 
-## 1.2.6
+## v1.2.6
 
 - Updated documentation
 
-## 1.2.7
+## v1.2.7
 
 - Update Vagrantfile
 
-## 1.2.8
+## v1.2.8
 
 - Updated for new private_key location
 - Switch to ansible_os_distribution variable
 - Rename tasks
 - Update documentation
 - Minimal hubot_custom_scripts variable (hi RMS)
+
+## v1.2.9
+
+- Ubuntu 14.04
+- Updated documentation
