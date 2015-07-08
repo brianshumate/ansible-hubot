@@ -26,7 +26,7 @@ software versions:
 
 All variables are specified in `defaults/main.yml` and `vars/main.yml`.
 
-### Defaults
+### Default Variables
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
