@@ -16,9 +16,9 @@ This Hubot role requires a Ubuntu or CentOS based Linux host and has been
 tested to function on Ubuntu and CentOS with the following specific
 software versions:
 
-* Ansible: 1.9.1
+* Ansible: 1.9.2
 * Hubot: GitHub Master
-* Node.js: 0.10.36
+* Node.js: 0.10.37
 * CentOS: 6
 * Ubuntu: 14.04, 13.10, 13.04, 12.10, 12.04
 
@@ -55,8 +55,7 @@ If you add more Hubot scripts to the your own `_custom-scripts.yml` file,
 be sure to add any Node.js dependencies required by the scripts
 to the `hubot_node_packages` variable list as well.
 
-The following OS dependency packages are defined in `hubot_os_packages` and
-installed by default:
+The `hubot_os_packages` defines following OS dependency packages:
 
 * build-essential
 * curl
@@ -83,12 +82,11 @@ which is a dependency of the Hubot `redis-brain` script.
 | hubot_centos_os_packages | List | List of CentOS specific OS packages to install
 |hubot_custom_scripts | List | A list of additional Hubot scripts to use
 
-You can enable additional Hubot scripts by *copying*
-`vars/_custom-scripts.yml` to `vars/custom-scripts.yml`. The file already
-contains a reasonable set of scripts befitting something akin to an
-engineering team, but if you prefer, you can replace them with your own list
-of scripts which will then be preferred at runtime and not overwritten
-when you upgrade this role.
+You can enable more Hubot scripts by *copying* `vars/_custom-scripts.yml` 
+to `vars/custom-scripts.yml`. The file already contains a reasonable set 
+of scripts befitting something akin to an engineering team, but if you 
+prefer, you can replace them with your own list of scripts which will be
+preferred at runtime and not overwritten when you upgrade this role.
 
 The included scripts are as follows:
 
@@ -127,8 +125,7 @@ be automatically installed from that file instead of the default
 
 ## Configuration
 
-At a minimum, modify the variables defined in the following files as
-necessary:
+Modify the variables defined in the following files as necessary:
 
 * `defaults/main.yml`
 * `vars/main.yml`

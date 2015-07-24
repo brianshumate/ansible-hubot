@@ -38,6 +38,9 @@
   tags:
     - node_packages
 
+- name: Stop Hubot service
+  service: name=hubot state=stopped
+
 - name: Decommission previous model
   sudo: True
   file: "path={{ hubot_dir }} state=absent"

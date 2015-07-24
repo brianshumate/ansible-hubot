@@ -90,3 +90,9 @@
 
 - Ubuntu 14.04
 - Updated documentation
+
+## v1.2.10
+
+- Stop service before decommission task
+- Update versions
+- Update documentation
