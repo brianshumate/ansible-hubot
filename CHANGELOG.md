@@ -96,3 +96,7 @@
 - Stop service before decommission task
 - Update versions
 - Update documentation
+
+## v1.2.11
+
+- Updated documentation

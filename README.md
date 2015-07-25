@@ -22,6 +22,32 @@ software versions:
 * CentOS: 6
 * Ubuntu: 14.04, 13.10, 13.04, 12.10, 12.04
 
+## Works with Ansible Galaxy
+
+This role is designed to be installed via the `ansible-galaxy` command
+instead of being directly run from the git repository.
+
+You should install it like this:
+
+```
+ansible-galaxy install brianshumate.hubot
+```
+
+You'll want to make sure you have write access to `/etc/ansible/roles/` since
+that is where the role will be installed by default, or define your own
+Ansible role path by creating a `$HOME/.ansible.cfg` file with these contents:
+
+```
+[defaults]
+roles_path = <path_to_your_preferred_role_location>
+```
+
+Change `<path_to_your_preferred_role_location>` to a directory you have write
+access to.
+
+See the [ansible-galaxy](http://docs.ansible.com/galaxy.html) documentation
+for more details.
+
 ## Role Variables
 
 All variables are specified in `defaults/main.yml` and `vars/main.yml`.
