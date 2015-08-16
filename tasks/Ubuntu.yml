@@ -27,9 +27,14 @@
   tags:
     - node_packages
 
+- name: Check if Hubot Service Exists
+  stat: path=/etc/init.d/hubot
+  register: hubot_service_status
+
 - name: Stop Hubot service
   service: name=hubot state=stopped
-
+  when: hubot_service_status.stat.exists
+  
 - name: Decommission previous model
   sudo: True
   file: "path={{ hubot_dir }} state=absent"
