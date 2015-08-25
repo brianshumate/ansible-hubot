@@ -15,5 +15,5 @@
 - name: Special Hubot scripts
   include_vars: "{{ item }}"
   with_first_found:
-   - "custom-scripts.yml"
    - "_custom-scripts.yml"
+   - "custom-scripts.yml"

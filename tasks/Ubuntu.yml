@@ -34,7 +34,7 @@
 - name: Stop Hubot service
   service: name=hubot state=stopped
   when: hubot_service_status.stat.exists
-  
+
 - name: Decommission previous model
   sudo: True
   file: "path={{ hubot_dir }} state=absent"
@@ -57,7 +57,7 @@
 
 - name: Define Hubot environment
   sudo: False
-  template: "src=_hubot.env.j2 dest={{ hubot_dir }}/{{ hubot_identity }}.env"
+  template: "src=_hubot_{{hubot_adapter}}.env.j2 dest={{ hubot_dir }}/{{ hubot_identity }}.env"
   tags:
     - hubot_environment
 

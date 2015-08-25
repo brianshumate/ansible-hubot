@@ -8,10 +8,10 @@
 #############################################################################
 
 hubot_ubuntu_os_packages:
+  - build-essential
   - curl
   - expat
   - git
   - libicu-dev
   - openssl
   - redis-server
-  - build-essential

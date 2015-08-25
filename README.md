@@ -1,14 +1,18 @@
 # Ansible Hubot
 
+> **NOTE**: 1.3.0 default change: This role now defaults to installing a
+> Slack based hubot with the `hubot_adapter` variable. Changing the variable
+> value to 'hipchat' will install for HipChat instead.
+
 This is an [Ansible](http://www.ansible.com/) role for
 [Hubot](http://hubot.github.com/), the wonderful chatting robot that is sure
 to bring your team much delight and various values of increased productivity
 throughout the livelong day!
 
-By default this Hubot is configured for HipChat, but that can be easily
-changed by editing `vars/main.yml`, updating the value of
+By default this Hubot is configured for Slack, but that can be easily
+changed work with HipChat by editing `vars/main.yml`, updating the value of
 *hubot_adapter*, and adding the appropriate environment variables to
-`templates/_hubot.env.j2`.
+`templates/_hubot_{{hubot_adapter}}.env.j2`.
 
 ## Requirements
 
@@ -98,7 +102,7 @@ which is a dependency of the Hubot `redis-brain` script.
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
 | hubot_admin    | vagrant       | OS username of Hubot owner/admin |
-| hubot_adapter  | hipchat       | Specify preferred chat adapter to use |
+| hubot_adapter  | slack       | Specify preferred chat adapter to use |
 | hubot_description | "'A funny chatting robot'" | Description of bot |
 | hubot_owner | "'Stephie Andretti <stephie@example.com>'" | Name of bot owner |
 | hubot_node_packages | List | List of Node.js dependency packages to install |
@@ -145,19 +149,21 @@ The included scripts are as follows:
 * xkcd.coffee
 * zombies.coffee
 
-If the file `vars/custom-scripts.yml` is found at runtime, the scripts will
+If the file `vars/_custom-scripts.yml` is found at runtime, scripts will
 be automatically installed from that file instead of the default
-`vars/_custom-scripts.yml` file.
+`vars/custom-scripts.yml` file.
 
 ## Configuration
 
-Modify the variables defined in the following files as necessary:
+Edit the variables defined in the following files as necessary:
 
 * `defaults/main.yml`
 * `vars/main.yml`
 
-Then, copy `templates/hubot.env.j2` to `templates/_hubot.env.j2` and update as
-necessary with the particular environment variables you need for your Hubot.
+Then, copy the necessary `templates/hubot_?.env.j2` to 
+`templates/_hubot_?.env.j2` where *?* is your hubot_adapter value, and update
+as necessary with the particular environment variables you need 
+for your Hubot instance.
 
 Copy `hosts.example` to `hosts` and edit it to update the values for your
 Hubot host. Be sure to change the following values:
@@ -178,11 +184,11 @@ using the included `site.yml` playbook:
 ansible-playbook -i hosts site.yml
 ```
 
-You can also simply pass variables in using the `--extra-vars` option
+You can also pass variables in using the `--extra-vars` option
 to the `ansible-playbook` command:
 
 ```
-ansible-playbook -i hosts site.yml --extra-vars "hubot_admin=penelope hubot_adapter=slack hubot_identity=penelope hubot_owner='Penelope <penelope@example.com>' hubot_description='A stunning mermaid bot'"
+ansible-playbook -i hosts site.yml --extra-vars "hubot_admin=penelope hubot_adapter=hipchat hubot_identity=penelope hubot_owner='Penelope <penelope@example.com>' hubot_description='A stunning mermaid bot'"
 ```
 
 ## Dependencies

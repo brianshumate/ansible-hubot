@@ -100,3 +100,12 @@
 ## v1.2.11
 
 - Updated documentation
+
+## v1.3.0
+
+- Add Slack support
+- Default adapter changed to 'slack'
+- Prefer "private" (_files) first for inclusion
+- Update variables
+- Update documentation
+- Clean up cruft

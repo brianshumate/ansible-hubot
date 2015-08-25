@@ -17,6 +17,7 @@ start)
 	printf "%-50s" "Starting $DESC..."
   if [ ! -e $LOG ]; then touch $LOG && chown {{ hubot_admin }} $LOG
   fi
+    source {{ hubot_dir }}/{{ hubot_identity }}.env
     PID=`runuser -c "$DAEMON" - $USER  >> $LOG 2>&1 & echo $!`
 	echo "Saving PID" $PID " to " $PIDFILE
         if [ -z $PID ]; then

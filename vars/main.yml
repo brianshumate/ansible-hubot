@@ -6,7 +6,6 @@
 # hubot_admin:                User account that will run the bot; for
 #                             operating in development mode with Vagrant,
 #                             this value should be "vagrant".
-# hubot_adapter:              Hubot chat adapter to use
 # hubot_identity:             Bot user name
 # hubot_description:          Description of bot
 # hubot_owner:                Name of bot owner
@@ -16,8 +15,6 @@
 
 hubot_admin: vagrant
 
-hubot_adapter: hipchat
-
 hubot_custom_scripts:
   - stallman.coffee
 
@@ -25,15 +22,18 @@ hubot_identity: hubot
 
 hubot_owner: "'Stephie Andretti <stephie@example.com>'"
 
-hubot_description: "'A funny chatting robot'"
+hubot_description: "'A helpful chat robot'"
 
 hubot_node_packages:
   - cheerio
   - clark
-  - cleverbot-node
   - htmlparser
   - hubot-calculator
   - hubot-hipchat-emoticons
+  - hubot-{{hubot_adapter}}
+  - hubot-scripts
+  - hubot-youtube
   - nodepie
   - soupselect
+  - textspark
 

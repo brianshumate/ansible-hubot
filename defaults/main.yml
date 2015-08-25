@@ -3,19 +3,17 @@
 
 #############################################################################
 #
+# hubot_adapter:              Supported adapter ('slack' or 'hipchat')
 # hubot_node_version:         Node.js version to use
 # hubot_dir:                  Bot home directory
 # hubot_nvm_dir:              Node Version Manager installation root directory
 # hubot_node_dir:             Node.js installation root directory
-# hubot_identity:             Bot user name
-# hubot_description:          Description of bot
-# hubot_owner:                Name of bot owner
-# hubot_node_packages:        Node.js dependencies
 # hubot_global_node_packages: Gloabl Node.js dependencies
 # hubot_all_dirs:             List of directories owned by Hubot admin user
 #
 #############################################################################
 
+hubot_adapter: slack
 
 hubot_node_version: 0.10.37
 
@@ -23,7 +21,7 @@ hubot_dir: "/home/{{ hubot_admin }}/hubot"
 
 hubot_nvm_dir: "/home/{{ hubot_admin }}/.nvm"
 
-hubot_node_dir: "{{ hubot_nvm_dir }}/versions/node/v{{ hubot_node_version }}"
+hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
 
 hubot_global_node_packages:
   - coffee-script

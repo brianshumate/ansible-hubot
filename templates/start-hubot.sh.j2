@@ -5,10 +5,19 @@
 
 # Start Hubot in the background
 
-. {{ hubot_nvm_dir }}/nvm.sh
+source {{ hubot_nvm_dir }}/nvm.sh
 nvm use {{ hubot_node_version }}
 
 cd {{ hubot_dir }}
-. {{ hubot_identity }}.env
+source {{ hubot_identity }}.env
 
-bin/hubot --adapter {{ hubot_adapter }} >> {{ hubot_dir }}/log/hubot.log 2>&1
+if [ {{ hubot_adapter}} == "hipchat" ]; then
+    bin/hubot --adapter {{ hubot_adapter }} >> {{ hubot_dir }}/log/hubot.log 2>&1
+else
+    if [ {{ hubot_adapter }} == "slack" ]; then
+       HUBOT_SLACK_TOKEN="$HUBOT_SLACK_TOKEN" bin/hubot --adapter {{ hubot_adapter }} >> {{ hubot_dir }}/log/hubot.log 2>&1
+    fi
+fi
+
+echo >2 "Only adapters 'hipchat' and 'slack' are supported"
+exit 1
