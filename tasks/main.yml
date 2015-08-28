@@ -12,6 +12,12 @@
 - include: Ubuntu.yml
   when: ansible_distribution  == "Ubuntu"
 
+- name: External Hubot scripts
+  include_vars: "{{ item }}"
+  with:
+   - "_custom-scripts.yml"
+   - "custom-scripts.yml"
+
 - name: Special Hubot scripts
   include_vars: "{{ item }}"
   with_first_found:

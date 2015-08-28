@@ -87,7 +87,7 @@
 
 - name: Configure Hubot external scripts
   sudo: False
-  copy: "src=external-scripts.json dest={{ hubot_dir }}/external-scripts.json owner={{ hubot_admin }} group={{ hubot_admin }} mode=0644"
+  template: "src=external-scripts.json.j2 dest={{ hubot_dir }}/external-scripts.json owner={{ hubot_admin }} group={{ hubot_admin }} mode=0644"
   tags: hubot_scripts
 
 - name: Hubot log directory
