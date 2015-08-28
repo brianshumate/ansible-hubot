@@ -1,0 +1,5 @@
+[
+  {% if hubot_external_scripts %}
+    "{{ hubot_external_scripts | join('","') }}"
+  {% endif %}
+]

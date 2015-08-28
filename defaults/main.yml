@@ -32,3 +32,21 @@ hubot_all_dirs:
   - "{{ hubot_dir }}"
   - "{{ hubot_nvm_dir }}"
   - "/home/{{ hubot_admin }}/.npm"
+
+#############################################################################
+#
+# external_scripts: A list of additional Hubot scripts to use
+#
+#############################################################################
+
+hubot_external_scripts:
+  - hubot-redis-brain
+  - hubot-help
+  # - hubot-calculator
+  # - hubot-diagnostics
+  # - hubot-hipchat-emoticons
+  # - hubot-google-images
+  # - hubot-maps
+  # - hubot-rules
+  # - hubot-google-translate
+  # - hubot-youtube
