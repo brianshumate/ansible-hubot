@@ -47,9 +47,6 @@ hubot_all_dirs:
 
 hubot_admin: vagrant
 
-hubot_custom_scripts:
-  - stallman.coffee
-
 hubot_identity: hubot
 
 hubot_owner: "'Stephie Andretti <stephie@example.com>'"
@@ -75,7 +72,7 @@ hubot_node_packages:
 #
 #############################################################################
 
-hubot_custom_scripts:
+# hubot_scripts:
   # - achievement_unlocked.coffee
   # - ackbar.coffee
   # - applause.coffee
@@ -104,9 +101,6 @@ hubot_custom_scripts:
   # - wunderground.coffee
   # - xkcd.coffee
   # - zombies.coffee
-
-
-
 
 
 #############################################################################
