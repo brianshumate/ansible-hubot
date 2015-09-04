@@ -32,3 +32,12 @@ hubot_all_dirs:
   - "{{ hubot_dir }}"
   - "{{ hubot_nvm_dir }}"
   - "/home/{{ hubot_admin }}/.npm"
+
+#############################################################################
+#
+# external__git_scripts: A list of additional Hubot scripts to checkout 
+# from git.
+#
+#############################################################################
+# hubot_external_git_scripts:
+#   - { name: hubot-jenkins-userauth, repo_url: "https://github.com/joestewart/hubot-jenkins-userauth.git" }
