@@ -68,6 +68,18 @@ hubot_node_packages:
 
 #############################################################################
 #
+# hubot_custom_scripts: A list of custom additional Hubot scripts in the 
+# files/scripts directory to use.
+#
+#############################################################################
+
+# hubot_custom_scripts:
+  # - caseofmondays.coffee
+  # - dogatcomputer.coffee
+  # - ignoreme.coffee
+
+#############################################################################
+#
 # hubot_scripts: A list of additional Hubot scripts to use
 #
 #############################################################################
