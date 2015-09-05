@@ -9,10 +9,10 @@ This is an [Ansible](http://www.ansible.com/) role for
 to bring your team much delight and various values of increased productivity
 throughout the livelong day!
 
-By default this Hubot is configured for Slack, but that can be easily
-changed work with HipChat by editing `vars/main.yml`, updating the value of
-*hubot_adapter*, and adding the appropriate environment variables to
-`templates/_hubot_{{hubot_adapter}}.env.j2`.
+By default this Hubot role uses the Slack adapter, but that can be easily
+changed to work with HipChat by editing `defaults/main.yml`, updating the
+value of *hubot_adapter*, and adding the appropriate environment variables 
+to `templates/_hubot_{{hubot_adapter}}.env.j2`.
 
 ## Requirements
 
@@ -20,7 +20,7 @@ This Hubot role requires a Ubuntu or CentOS based Linux host and has been
 tested to function on Ubuntu and CentOS with the following specific
 software versions:
 
-* Ansible: 1.9.2
+* Ansible: 1.9.3
 * Hubot: GitHub Master
 * Node.js: 0.10.37
 * CentOS: 6
@@ -54,9 +54,7 @@ for more details.
 
 ## Role Variables
 
-All variables are specified in `defaults/main.yml` and `vars/main.yml`.
-
-### Default Variables
+All role variables should be in `defaults/main.yml`.
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
@@ -67,10 +65,20 @@ All variables are specified in `defaults/main.yml` and `vars/main.yml`.
 | hubot_identity | hubot         | The bot's identity or short username |
 | hubot_global_node_packages | List | List of Node.js dependency packages to install globally
 | hubot_all_dirs | List | List of directories owned by Hubot admin user
+| hubot_admin    | vagrant       | OS username of Hubot owner/admin |
+| hubot_adapter  | slack       | Specify preferred chat adapter to use |
+| hubot_description | "'A funny chatting robot'" | Description of bot |
+| hubot_owner | "'Stephie Andretti <stephie@example.com>'" | Name of bot owner |
+| hubot_node_packages | List | List of Node.js dependency packages to install |
+| epel_package  | `epel-release-6-8.noarch.rpm` | EPEL reposiory package file name |
+| epel_url      | "http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" | EPEL repository URL |
+| hubot_ubuntu_os_packages | List | List of Ubuntu specific OS packages to install
+| hubot_centos_os_packages | List | List of CentOS specific OS packages to install
+|hubot_custom_scripts | List | A list of additional Hubot scripts to use
 
-The following Node.js dependency packages are defined in
-`hubot_node_packages` and installed by default to support the additional Hubot
-scripts included in this role:
+## Node Packages
+
+The `hubot_node_packages` defines the following Node.js dependency packages:
 
 * cheerio
 * clark
@@ -85,40 +93,19 @@ If you add more Hubot scripts to the your own `_custom-scripts.yml` file,
 be sure to add any Node.js dependencies required by the scripts
 to the `hubot_node_packages` variable list as well.
 
-The `hubot_os_packages` defines following OS dependency packages:
+The `hubot_centos_os_packages` and `hubot_ubuntu_os_packages` variables
+define OS packages required by Hubot; they should be fine as-is.
 
-* build-essential
-* curl
-* git-core
-* libssl-dev
-* libexpat1-dev
-* redis-server
+### Scripts
 
-Most of these packages are required with the exception of `redis-server`,
-which is a dependency of the Hubot `redis-brain` script.
+You can enable Hubot scripts by uncommenting or adding them to
+the `hubot_scripts` variable.
 
-### Variables
+The `defaults/main.yml` file already contains a reasonable set of scripts
+befitting something akin to an engineering team, but you can replace them
+with your own list.
 
-| Name           | Default Value | Description                        |
-| -------------- | ------------- | -----------------------------------|
-| hubot_admin    | vagrant       | OS username of Hubot owner/admin |
-| hubot_adapter  | slack       | Specify preferred chat adapter to use |
-| hubot_description | "'A funny chatting robot'" | Description of bot |
-| hubot_owner | "'Stephie Andretti <stephie@example.com>'" | Name of bot owner |
-| hubot_node_packages | List | List of Node.js dependency packages to install |
-| epel_package  | `epel-release-6-8.noarch.rpm` | EPEL reposiory package file name |
-| epel_url      | "http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" | EPEL repository URL |
-| hubot_ubuntu_os_packages | List | List of Ubuntu specific OS packages to install
-| hubot_centos_os_packages | List | List of CentOS specific OS packages to install
-|hubot_custom_scripts | List | A list of additional Hubot scripts to use
-
-You can enable more Hubot scripts by *copying* `vars/_custom-scripts.yml` 
-to `vars/custom-scripts.yml`. The file already contains a reasonable set 
-of scripts befitting something akin to an engineering team, but if you 
-prefer, you can replace them with your own list of scripts which will be
-preferred at runtime and not overwritten when you upgrade this role.
-
-The included scripts are as follows:
+The optional commented out scripts in `defaults/main.yml`:
 
 * achievement_unlocked.coffee
 * ackbar.coffee
@@ -138,7 +125,6 @@ The included scripts are as follows:
 * hackernews.coffee
 * megusta.coffee
 * ping.coffee
-* redis-brain
 * reddit
 * reddit-jokes.coffee
 * reddit-random-top.coffee
@@ -149,16 +135,9 @@ The included scripts are as follows:
 * xkcd.coffee
 * zombies.coffee
 
-If the file `vars/_custom-scripts.yml` is found at runtime, scripts will
-be automatically installed from that file instead of the default
-`vars/custom-scripts.yml` file.
-
 ## Configuration
 
-Edit the variables defined in the following files as necessary:
-
-* `defaults/main.yml`
-* `vars/main.yml`
+First, edit the variables defined in `defaults/main.yml` as necessary.
 
 Then, copy the necessary `templates/hubot_?.env.j2` to 
 `templates/_hubot_?.env.j2` where *?* is your hubot_adapter value, and update

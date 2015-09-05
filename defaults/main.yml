@@ -10,6 +10,13 @@
 # hubot_node_dir:             Node.js installation root directory
 # hubot_global_node_packages: Gloabl Node.js dependencies
 # hubot_all_dirs:             List of directories owned by Hubot admin user
+# hubot_admin:                User account that will run the bot; for
+#                             operating in development mode with Vagrant,
+#                             this value should be "vagrant".
+# hubot_identity:             Bot user name
+# hubot_description:          Description of bot
+# hubot_owner:                Name of bot owner
+# hubot_node_packages:        Node.js dependencies
 #
 #############################################################################
 
@@ -32,18 +39,6 @@ hubot_all_dirs:
   - "{{ hubot_dir }}"
   - "{{ hubot_nvm_dir }}"
   - "/home/{{ hubot_admin }}/.npm"
-
-#############################################################################
-#
-# hubot_admin:                User account that will run the bot; for
-#                             operating in development mode with Vagrant,
-#                             this value should be "vagrant".
-# hubot_identity:             Bot user name
-# hubot_description:          Description of bot
-# hubot_owner:                Name of bot owner
-# hubot_node_packages:        Node.js dependencies
-#
-#############################################################################
 
 hubot_admin: vagrant
 
@@ -68,8 +63,7 @@ hubot_node_packages:
 
 #############################################################################
 #
-# hubot_custom_scripts: A list of custom additional Hubot scripts in the 
-# files/scripts directory to use.
+# hubot_custom_scripts: A list of custom Hubot scripts from files/scripts
 #
 #############################################################################
 
@@ -80,7 +74,7 @@ hubot_node_packages:
 
 #############################################################################
 #
-# hubot_scripts: A list of additional Hubot scripts to use
+# hubot_scripts: A list of optional Hubot scripts to use
 #
 #############################################################################
 
@@ -103,7 +97,6 @@ hubot_node_packages:
   # - hackernews.coffee
   # - megusta.coffee
   # - ping.coffee
-  # - redis-brain
   # - reddit
   # - reddit-jokes.coffee
   # - reddit-random-top.coffee

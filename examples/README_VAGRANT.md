@@ -14,7 +14,7 @@ HipChat by editing `defaults/main.yml`, updating the value of
 This Hubot role requires a Debian based Linux host and is tested to
 function on Ubuntu with the following specific software versions:
 
-* Ansible: 1.9.2
+* Ansible: 1.9.3
 * VirtualBox: 4.3.30
 * Vagrant: 1.7.2
 * Hubot: GitHub Master
@@ -27,8 +27,7 @@ function on Ubuntu with the following specific software versions:
 Follow these directions for a Hubot development deployment on an Ubuntu
 virtual machine with VirtualBox and Vagrant.
 
-Install the following on the machine that will be used for Hub development,
-testing, or trying to take over the world:
+Ensure the following are installed:
 
 * [VirtualBox](https://www.virtualbox.org/)
 * [Vagrant](http://www.vagrantup.com/)
@@ -41,10 +40,7 @@ These tools are optional, but highly recommended:
 
 ### Hubot Configurate!
 
-Visit the variables defined in the following file for minimal configuration:
-
-* `defaults/main.yml`
-* `vars/main.yml`
+Visit the variables defined in `defaults/main.yml` for minimal configuration:
 
 You can find more information in the main project [README](README.md) 
 about these variables.

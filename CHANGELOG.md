@@ -109,3 +109,8 @@
 - Update variables
 - Update documentation
 - Clean up cruft
+
+## v1.3.1
+
+- Move all variables into defaults with PR from @joestewart
+- Update documentation
