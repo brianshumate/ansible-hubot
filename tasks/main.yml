@@ -19,3 +19,12 @@
   tags:
     - hubot_scripts
 
+- name: Install hubot git scripts
+  sudo: False
+  git: repo={{ item.repo_url }} dest={{ hubot_dir }}/scripts/{{ item.name }}
+  with_items: "hubot_git_scripts"
+  when: hubot_git_scripts is defined
+  notify:
+    - restart hubot
+  tags:
+    - hubot_scripts
