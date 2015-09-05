@@ -35,9 +35,127 @@ hubot_all_dirs:
 
 #############################################################################
 #
+# hubot_admin:                User account that will run the bot; for
+#                             operating in development mode with Vagrant,
+#                             this value should be "vagrant".
+# hubot_identity:             Bot user name
+# hubot_description:          Description of bot
+# hubot_owner:                Name of bot owner
+# hubot_node_packages:        Node.js dependencies
+#
+#############################################################################
+
+hubot_admin: vagrant
+
+hubot_identity: hubot
+
+hubot_owner: "'Stephie Andretti <stephie@example.com>'"
+
+hubot_description: "'A helpful chat robot'"
+
+hubot_node_packages:
+  - cheerio
+  - clark
+  - htmlparser
+  - hubot-calculator
+  - hubot-hipchat-emoticons
+  - hubot-{{hubot_adapter}}
+  - hubot-scripts
+  - hubot-youtube
+  - nodepie
+  - soupselect
+  - textspark
+
+#############################################################################
+#
 # external__git_scripts: A list of additional Hubot scripts to checkout 
 # from git.
 #
 #############################################################################
 # hubot_external_git_scripts:
 #   - { name: hubot-jenkins-userauth, repo_url: "https://github.com/joestewart/hubot-jenkins-userauth.git" }
+
+#############################################################################
+#
+# hubot_custom_scripts: A list of custom additional Hubot scripts in the 
+# files/scripts directory to use.
+#
+#############################################################################
+
+# hubot_custom_scripts:
+  # - caseofmondays.coffee
+  # - dogatcomputer.coffee
+  # - ignoreme.coffee
+
+#############################################################################
+#
+# hubot_scripts: A list of additional Hubot scripts to use
+#
+#############################################################################
+
+# hubot_scripts:
+  # - achievement_unlocked.coffee
+  # - ackbar.coffee
+  # - applause.coffee
+  # - ascii.coffee
+  # - base64.coffee
+  # - bees.coffee
+  # - botsnack.coffee
+  # - cat.coffee
+  # - cleverbot.coffee
+  # - coin.coffee
+  # - dealwithit.coffee
+  # - decide.coffee
+  # - fortune.coffee
+  # - github-status.coffee
+  # - grumpycat.coffee
+  # - hackernews.coffee
+  # - megusta.coffee
+  # - ping.coffee
+  # - redis-brain
+  # - reddit
+  # - reddit-jokes.coffee
+  # - reddit-random-top.coffee
+  # - remind.coffee
+  # - stallman.coffee
+  # - twss
+  # - wunderground.coffee
+  # - xkcd.coffee
+  # - zombies.coffee
+
+
+#############################################################################
+#
+# epel_package: EPEL reposiory package file name
+# epel_url: EPEL repository URL
+# hubot_redhat_os_packages: A list of operating system packages to install
+#
+#############################################################################
+
+epel_package: epel-release-6-8.noarch.rpm
+epel_url: "http://dl.fedoraproject.org/pub/epel/6/x86_64/{{ epel_package }}"
+
+hubot_centos_os_packages:
+  - curl
+  - git
+  - libicu-devel
+  - openssl-devel
+  - expat-devel
+  - redis
+
+
+#############################################################################
+#
+# hubot_debian_os_packages: A list of operating system packages to install
+#
+#############################################################################
+
+hubot_ubuntu_os_packages:
+  - build-essential
+  - curl
+  - expat
+  - git
+  - libicu-dev
+  - openssl
+  - redis-server
+
