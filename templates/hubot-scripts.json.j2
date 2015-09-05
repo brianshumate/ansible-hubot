@@ -1,6 +1,1 @@
-[
-  {% if hubot_custom_scripts %}
-    "{{ hubot_custom_scripts | join('","') }}"
-  {% endif %}
-]
-
+{{ hubot_scripts | to_nice_json }}
