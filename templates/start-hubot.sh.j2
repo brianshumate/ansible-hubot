@@ -11,6 +11,6 @@ nvm use {{ hubot_node_version }}
 cd {{ hubot_dir }}
 source {{ hubot_identity }}.env
 
-bin/hubot --adapter {{ hubot_adapter }} >> {{ hubot_dir }}/log/hubot.log 2>&1
+bin/hubot --adapter {{ hubot_adapter }} {% if hubot_alias is defined %}--alias {{ hubot_alias }} {% endif %}>> {{ hubot_dir }}/log/hubot.log 2>&1
 
 
