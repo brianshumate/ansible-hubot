@@ -1,9 +1,6 @@
 ---
 # File: tasks/main.yml - Ansible Hubot main tasks
 
-- name: Distribution specific variables
-  include_vars: "{{ ansible_distribution }}.yml"
-
 # CentOS tasks
 - include: CentOS.yml
   when: ansible_distribution  == "CentOS"
@@ -11,15 +8,3 @@
 # Ubuntu tasks
 - include: Ubuntu.yml
   when: ansible_distribution  == "Ubuntu"
-
-- name: External Hubot scripts
-  include_vars: "{{ item }}"
-  with:
-   - "_custom-scripts.yml"
-   - "custom-scripts.yml"
-
-- name: Special Hubot scripts
-  include_vars: "{{ item }}"
-  with_first_found:
-   - "_custom-scripts.yml"
-   - "custom-scripts.yml"

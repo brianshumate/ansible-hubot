@@ -71,19 +71,24 @@
   sudo: False
   template: "src=start-hubot.sh.j2 dest={{ hubot_dir }}/bin/start-hubot mode=0744"
 
-- name: Install Hubot scripts
+- name: Install custom Hubot scripts
   sudo: False
-  copy: "src=scripts/ dest={{ hubot_dir }}/scripts owner={{ hubot_admin }} mode=0644"
+  copy: "src=scripts/{{ item }} dest={{ hubot_dir }}/scripts/{{ item }} owner={{ hubot_admin }} mode=0644"
+  with_items: hubot_custom_scripts
+  when: hubot_custom_scripts is defined
+  notify:
+    - restart hubot
   tags:
     - hubot_scripts
 
 - name: Configure Hubot scripts
   sudo: False
   template: "src=hubot-scripts.json.j2 dest={{ hubot_dir }}/hubot-scripts.json"
-  tags:
-    - hubot_scripts
+  when: hubot_scripts is defined
   notify:
     - restart hubot
+  tags:
+    - hubot_scripts
 
 - name: Configure Hubot external scripts
   sudo: False
