@@ -81,10 +81,6 @@ scripts included in this role:
 * nodepie
 * soupselect
 
-If you add more Hubot scripts to the your own `_custom-scripts.yml` file,
-be sure to add any Node.js dependencies required by the scripts
-to the `hubot_node_packages` variable list as well.
-
 The `hubot_os_packages` defines following OS dependency packages:
 
 * build-essential
@@ -112,11 +108,9 @@ which is a dependency of the Hubot `redis-brain` script.
 | hubot_centos_os_packages | List | List of CentOS specific OS packages to install
 |hubot_custom_scripts | List | A list of additional Hubot scripts to use
 
-You can enable more Hubot scripts by *copying* `vars/_custom-scripts.yml` 
-to `vars/custom-scripts.yml`. The file already contains a reasonable set 
-of scripts befitting something akin to an engineering team, but if you 
-prefer, you can replace them with your own list of scripts which will be
-preferred at runtime and not overwritten when you upgrade this role.
+The project includes a reasonable set of custom scripts befitting something
+akin to an engineering team, but if you prefer, you can replace them with
+your own list of scripts.
 
 The included scripts are as follows:
 
@@ -149,9 +143,11 @@ The included scripts are as follows:
 * xkcd.coffee
 * zombies.coffee
 
-If the file `vars/_custom-scripts.yml` is found at runtime, scripts will
-be automatically installed from that file instead of the default
-`vars/custom-scripts.yml` file.
+You will need to uncomment the appropriate variables in `defaults/main.yml`
+to make use of these scripts and add your own.
+
+If you add more custom scripts be sure to add any Node.js dependencies
+required by the scripts to the `hubot_node_packages` variable list as well.
 
 ## Configuration
 

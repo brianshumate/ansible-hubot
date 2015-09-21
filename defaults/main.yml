@@ -33,6 +33,26 @@ hubot_all_dirs:
   - "{{ hubot_nvm_dir }}"
   - "/home/{{ hubot_admin }}/.npm"
 
+hubot_env:
+   # General Hubot stuff
+   # HUBOT_AUTH_ADMIN: "FIXME"           # Replace with hubot admin username 
+   HUBOT_LOGLEVEL: "info"
+
+   # HipChat stuff
+   # HUBOT_HIPCHAT_DEBUG: "FIXME"        # Replace with boolean value
+   # HUBOT_HIPCHAT_TOKEN: "FIXME"        # Replace with HipChat auth token
+   # HUBOT_HIPCHAT_JID: "FIXME"          # Replace with HipChat Jabber ID
+   # HUBOT_HIPCHAT_NAME: "FIXME"         # Replace with HipChat user name
+   # HUBOT_HIPCHAT_PASSWORD: "FIXME"     # Replace with HipChat password
+   # HUBOT_HIPCHAT_ROOMS: "FIXME"        # Comma separated list of rooms to join
+   # HUBOT_HIPCHAT_JOIN_ROOMS_ON_INVITE: "FIXME" # Replace with boolean value
+
+   # Slack variables
+   # HUBOT_SLACK_TOKEN: "FIXME"
+
+   # Weather stuff
+   # HUBOT_WUNDERGROUND_API_KEY: "FIXME" # Replace with Wunderground API key
+
 #############################################################################
 #
 # hubot_admin:                User account that will run the bot; for
@@ -59,7 +79,7 @@ hubot_node_packages:
   - htmlparser
   - hubot-calculator
   - hubot-hipchat-emoticons
-  - hubot-{{hubot_adapter}}
+  - hubot-{{ hubot_adapter }}
   - hubot-scripts
   - hubot-youtube
   - nodepie
@@ -74,6 +94,24 @@ hubot_node_packages:
 #############################################################################
 # hubot_external_git_scripts:
 #   - { name: hubot-jenkins-userauth, repo_url: "https://github.com/joestewart/hubot-jenkins-userauth.git" }
+
+#############################################################################
+#
+# external_scripts: A list of additional Hubot scripts to use
+#
+#############################################################################
+
+hubot_external_scripts:
+  - hubot-redis-brain
+  - hubot-help
+  # - hubot-calculator
+  # - hubot-diagnostics
+  # - hubot-hipchat-emoticons
+  # - hubot-google-images
+  # - hubot-maps
+  # - hubot-rules
+  # - hubot-google-translate
+  # - hubot-youtube
 
 #############################################################################
 #

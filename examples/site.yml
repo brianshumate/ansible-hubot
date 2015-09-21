@@ -3,8 +3,6 @@
 
 - name: Hubot special variables
   hosts: hubot
-  vars_files:
-    - [ "../vars/custom-scripts.yml", "../vars/_custom-scripts.yml" ]
 
 - name: Hubot activate!
   hosts: hubot
