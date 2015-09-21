@@ -10,13 +10,6 @@
 # hubot_node_dir:             Node.js installation root directory
 # hubot_global_node_packages: Gloabl Node.js dependencies
 # hubot_all_dirs:             List of directories owned by Hubot admin user
-# hubot_admin:                User account that will run the bot; for
-#                             operating in development mode with Vagrant,
-#                             this value should be "vagrant".
-# hubot_identity:             Bot user name
-# hubot_description:          Description of bot
-# hubot_owner:                Name of bot owner
-# hubot_node_packages:        Node.js dependencies
 #
 #############################################################################
 
@@ -40,6 +33,38 @@ hubot_all_dirs:
   - "{{ hubot_nvm_dir }}"
   - "/home/{{ hubot_admin }}/.npm"
 
+hubot_env:
+   # General Hubot stuff
+   # HUBOT_AUTH_ADMIN: "FIXME"           # Replace with hubot admin username 
+   HUBOT_LOGLEVEL: "info"
+
+   # HipChat stuff
+   # HUBOT_HIPCHAT_DEBUG: "FIXME"        # Replace with boolean value
+   # HUBOT_HIPCHAT_TOKEN: "FIXME"        # Replace with HipChat auth token
+   # HUBOT_HIPCHAT_JID: "FIXME"          # Replace with HipChat Jabber ID
+   # HUBOT_HIPCHAT_NAME: "FIXME"         # Replace with HipChat user name
+   # HUBOT_HIPCHAT_PASSWORD: "FIXME"     # Replace with HipChat password
+   # HUBOT_HIPCHAT_ROOMS: "FIXME"        # Comma separated list of rooms to join
+   # HUBOT_HIPCHAT_JOIN_ROOMS_ON_INVITE: "FIXME" # Replace with boolean value
+
+   # Slack variables
+   HUBOT_SLACK_TOKEN: "FIXME"
+
+   # Weather stuff
+   # HUBOT_WUNDERGROUND_API_KEY: "FIXME" # Replace with Wunderground API key
+
+#############################################################################
+#
+# hubot_admin:                User account that will run the bot; for
+#                             operating in development mode with Vagrant,
+#                             this value should be "vagrant".
+# hubot_identity:             Bot user name
+# hubot_description:          Description of bot
+# hubot_owner:                Name of bot owner
+# hubot_node_packages:        Node.js dependencies
+#
+#############################################################################
+
 hubot_admin: vagrant
 
 hubot_identity: hubot
@@ -54,7 +79,7 @@ hubot_node_packages:
   - htmlparser
   - hubot-calculator
   - hubot-hipchat-emoticons
-  - hubot-{{hubot_adapter}}
+  - hubot-{{ hubot_adapter }}
   - hubot-scripts
   - hubot-youtube
   - nodepie
@@ -63,7 +88,26 @@ hubot_node_packages:
 
 #############################################################################
 #
-# hubot_custom_scripts: A list of custom Hubot scripts from files/scripts
+# external_scripts: A list of additional Hubot scripts to use
+#
+#############################################################################
+
+hubot_external_scripts:
+  - hubot-redis-brain
+  - hubot-help
+  # - hubot-calculator
+  # - hubot-diagnostics
+  # - hubot-hipchat-emoticons
+  # - hubot-google-images
+  # - hubot-maps
+  # - hubot-rules
+  # - hubot-google-translate
+  # - hubot-youtube
+
+#############################################################################
+#
+# hubot_custom_scripts: A list of custom additional Hubot scripts in the 
+# files/scripts directory to use.
 #
 #############################################################################
 
@@ -74,7 +118,7 @@ hubot_node_packages:
 
 #############################################################################
 #
-# hubot_scripts: A list of optional Hubot scripts to use
+# hubot_scripts: A list of additional Hubot scripts to use
 #
 #############################################################################
 
@@ -97,6 +141,7 @@ hubot_node_packages:
   # - hackernews.coffee
   # - megusta.coffee
   # - ping.coffee
+  # - redis-brain
   # - reddit
   # - reddit-jokes.coffee
   # - reddit-random-top.coffee

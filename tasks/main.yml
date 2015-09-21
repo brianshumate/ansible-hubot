@@ -8,4 +8,3 @@
 # Ubuntu tasks
 - include: Ubuntu.yml
   when: ansible_distribution  == "Ubuntu"
-

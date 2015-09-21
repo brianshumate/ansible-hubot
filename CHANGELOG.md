@@ -110,7 +110,9 @@
 - Update documentation
 - Clean up cruft
 
-## v1.3.1
+## v1.4.0
 
-- Move all variables into defaults with PR from @joestewart
-- Update documentation
+- Move all variables to defaults (thanks, @joestewart!)
+- Simplify startup script (thanks, @joestewart!)
+- Generate external scripts (thanks, @joestewart!)
+- Updated docs

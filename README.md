@@ -89,21 +89,29 @@ The `hubot_node_packages` defines the following Node.js dependency packages:
 * nodepie
 * soupselect
 
-If you add more Hubot scripts to the your own `_custom-scripts.yml` file,
-be sure to add any Node.js dependencies required by the scripts
-to the `hubot_node_packages` variable list as well.
-
 The `hubot_centos_os_packages` and `hubot_ubuntu_os_packages` variables
 define OS packages required by Hubot; they should be fine as-is.
+
+The `hubot_os_packages` defines following OS dependency packages:
+
+* build-essential
+* curl
+* git-core
+* libssl-dev
+* libexpat1-dev
+* redis-server
+
+Most of these packages are required with the exception of `redis-server`,
+which is a dependency of the Hubot `redis-brain` script.
 
 ### Scripts
 
 You can enable Hubot scripts by uncommenting or adding them to
 the `hubot_scripts` variable.
 
-The `defaults/main.yml` file already contains a reasonable set of scripts
-befitting something akin to an engineering team, but you can replace them
-with your own list.
+The project includes a reasonable set of custom scripts befitting something
+akin to an engineering team, but if you prefer, you can replace them with
+your own list of scripts.
 
 The optional commented out scripts in `defaults/main.yml`:
 
@@ -134,6 +142,12 @@ The optional commented out scripts in `defaults/main.yml`:
 * wunderground.coffee
 * xkcd.coffee
 * zombies.coffee
+
+You will need to uncomment the appropriate variables in `defaults/main.yml`
+to make use of these scripts and add your own.
+
+If you add more custom scripts be sure to add any Node.js dependencies
+required by the scripts to the `hubot_node_packages` variable list as well.
 
 ## Configuration
 
