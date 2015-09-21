@@ -88,6 +88,24 @@ hubot_node_packages:
 
 #############################################################################
 #
+# external_scripts: A list of additional Hubot scripts to use
+#
+#############################################################################
+
+hubot_external_scripts:
+  - hubot-redis-brain
+  - hubot-help
+  # - hubot-calculator
+  # - hubot-diagnostics
+  # - hubot-hipchat-emoticons
+  # - hubot-google-images
+  # - hubot-maps
+  # - hubot-rules
+  # - hubot-google-translate
+  # - hubot-youtube
+
+#############################################################################
+#
 # hubot_custom_scripts: A list of custom additional Hubot scripts in the 
 # files/scripts directory to use.
 #
