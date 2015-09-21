@@ -79,7 +79,7 @@ hubot_node_packages:
   - htmlparser
   - hubot-calculator
   - hubot-hipchat-emoticons
-  - hubot-{{hubot_adapter}}
+  - hubot-{{ hubot_adapter }}
   - hubot-scripts
   - hubot-youtube
   - nodepie
