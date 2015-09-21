@@ -142,3 +142,6 @@ hubot_ubuntu_os_packages:
   - libicu-dev
   - openssl
   - redis-server
+
+
+hubot_slack_token: EXAMPLE-zozb-7777777777-sybaOxAcybLo6U8suOhipCdR-EXAMPLE

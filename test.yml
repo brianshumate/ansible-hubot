@@ -1,0 +1,7 @@
+
+---
+- hosts: all
+  sudo: true
+  #requires the containing folder to be named hubot in order for the Vagrant provision to work correctly
+  roles:
+    - role: hubot
