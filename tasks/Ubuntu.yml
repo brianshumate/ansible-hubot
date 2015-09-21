@@ -57,7 +57,7 @@
 
 - name: Define Hubot environment
   sudo: False
-  template: "src=_hubot_{{hubot_adapter}}.env.j2 dest={{ hubot_dir }}/{{ hubot_identity }}.env"
+  template: "src=hubot_{{hubot_adapter}}.env.j2 dest={{ hubot_dir }}/{{ hubot_identity }}.env"
   tags:
     - hubot_environment
 
