@@ -116,3 +116,9 @@
 - Simplify startup script (thanks, @joestewart!)
 - Generate external scripts (thanks, @joestewart!)
 - Updated docs
+
+## v1.5.0
+
+- Node 4.2.2
+- Re-comment hubot slack token var
+

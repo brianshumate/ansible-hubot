@@ -15,13 +15,13 @@
 
 hubot_adapter: slack
 
-hubot_node_version: 0.10.37
+hubot_node_version: 4.2.2
 
 hubot_dir: "/home/{{ hubot_admin }}/hubot"
 
 hubot_nvm_dir: "/home/{{ hubot_admin }}/.nvm"
 
-hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
+hubot_node_dir: "{{ hubot_nvm_dir }}/versions/node/v{{ hubot_node_version }}"
 
 hubot_global_node_packages:
   - coffee-script
@@ -48,7 +48,7 @@ hubot_env:
    # HUBOT_HIPCHAT_JOIN_ROOMS_ON_INVITE: "FIXME" # Replace with boolean value
 
    # Slack variables
-   HUBOT_SLACK_TOKEN: "FIXME"
+   # HUBOT_SLACK_TOKEN: "FIXME"
 
    # Weather stuff
    # HUBOT_WUNDERGROUND_API_KEY: "FIXME" # Replace with Wunderground API key
