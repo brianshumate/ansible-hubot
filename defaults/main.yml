@@ -15,13 +15,13 @@
 
 hubot_adapter: slack
 
-hubot_node_version: 4.2.2
+hubot_node_version: 0.10.37
 
 hubot_dir: "/home/{{ hubot_admin }}/hubot"
 
 hubot_nvm_dir: "/home/{{ hubot_admin }}/.nvm"
 
-hubot_node_dir: "{{ hubot_nvm_dir }}/versions/node/v{{ hubot_node_version }}"
+hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
 
 hubot_global_node_packages:
   - coffee-script
@@ -35,7 +35,7 @@ hubot_all_dirs:
 
 hubot_env:
    # General Hubot stuff
-   # HUBOT_AUTH_ADMIN: "FIXME"           # Replace with hubot admin username 
+   # HUBOT_AUTH_ADMIN: "FIXME"           # Replace with hubot admin username
    HUBOT_LOGLEVEL: "info"
 
    # HipChat stuff
@@ -48,7 +48,7 @@ hubot_env:
    # HUBOT_HIPCHAT_JOIN_ROOMS_ON_INVITE: "FIXME" # Replace with boolean value
 
    # Slack variables
-   # HUBOT_SLACK_TOKEN: "FIXME"
+   HUBOT_SLACK_TOKEN: "FIXME"
 
    # Weather stuff
    # HUBOT_WUNDERGROUND_API_KEY: "FIXME" # Replace with Wunderground API key
@@ -106,7 +106,7 @@ hubot_external_scripts:
 
 #############################################################################
 #
-# hubot_custom_scripts: A list of custom additional Hubot scripts in the 
+# hubot_custom_scripts: A list of custom additional Hubot scripts in the
 # files/scripts directory to use.
 #
 #############################################################################
@@ -152,38 +152,8 @@ hubot_external_scripts:
   # - xkcd.coffee
   # - zombies.coffee
 
+# EPEL repository URL
+epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
 
-#############################################################################
-#
-# epel_package: EPEL reposiory package file name
-# epel_url: EPEL repository URL
-# hubot_redhat_os_packages: A list of operating system packages to install
-#
-#############################################################################
-
-epel_package: epel-release-6-8.noarch.rpm
-epel_url: "http://dl.fedoraproject.org/pub/epel/6/x86_64/{{ epel_package }}"
-
-hubot_centos_os_packages:
-  - curl
-  - git
-  - libicu-devel
-  - openssl-devel
-  - expat-devel
-  - redis
-
-
-#############################################################################
-#
-# hubot_debian_os_packages: A list of operating system packages to install
-#
-#############################################################################
-
-hubot_ubuntu_os_packages:
-  - build-essential
-  - curl
-  - expat
-  - git
-  - libicu-dev
-  - openssl
-  - redis-server
+# EPEL repository GPG key
+epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"

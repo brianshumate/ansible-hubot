@@ -1,0 +1,35 @@
+---
+- name: Install EPEL repo.
+  yum:
+    name: "{{ epel_repo_url }}"
+    state: present
+  register: result
+  until: '"failed" not in result'
+  retries: 5
+  delay: 10
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Import EPEL GPG key.
+  rpm_key:
+    key: "{{ epel_repo_gpg_key_url }}"
+    state: present
+
+- name: install the 'Development tools' package group
+  yum: name="@Development tools" state=present
+  when: ansible_pkg_mgr == 'yum'
+  changed_when: False
+
+- name: Install packages for RedHat
+  yum: name={{ item }} state=present
+  when: ansible_pkg_mgr == 'yum'
+  with_items:
+    - curl
+    - git
+    - libicu-devel
+    - libselinux-python
+    - openssl-devel
+    - expat-devel
+    - redis
+
+- set_fact:
+    redis_server: redis

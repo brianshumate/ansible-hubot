@@ -1,0 +1,24 @@
+---
+- name: Test the hubot role
+  hosts: all
+  vars:
+    # Hubot.
+    hubot_admin: hubot
+    hubot_adapter: hipchat
+    hubot_owner: "'Rémy Greinhofer <regreinh@cisco.com>'"
+    hubot_description: 'A stunning mermaid bot...Wait, WHAT...'
+
+    hubot_env:
+      # General Hubot stuff
+      HUBOT_LOG_LEVEL: "debug"
+
+    hubot_external_scripts:
+      - hubot-help
+      - hubot-calculator
+
+  pre_tasks:
+    # Ensure there is a hubot user.
+    - user: name="{{ hubot_admin }}" comment="Hubot admin user"
+
+  roles:
+    - ansible-hubot

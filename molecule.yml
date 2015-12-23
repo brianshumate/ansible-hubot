@@ -1,0 +1,17 @@
+---
+ansible:
+  config_file: .molecule/ansible.cfg
+
+vagrant:
+  platforms:
+    - name: trusty64
+      box: ubuntu/trusty64
+    - name: centos7
+      box: centos/7
+
+  providers:
+    - name: virtualbox
+      type: virtualbox
+
+  instances:
+    - name: brianshumate-hubot-01

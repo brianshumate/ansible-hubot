@@ -11,7 +11,7 @@ throughout the livelong day!
 
 By default this Hubot role uses the Slack adapter, but that can be easily
 changed to work with HipChat by editing `defaults/main.yml`, updating the
-value of *hubot_adapter*, and adding the appropriate environment variables 
+value of *hubot_adapter*, and adding the appropriate environment variables
 to `templates/_hubot_{{hubot_adapter}}.env.j2`.
 
 ## Requirements
@@ -153,9 +153,9 @@ required by the scripts to the `hubot_node_packages` variable list as well.
 
 First, edit the variables defined in `defaults/main.yml` as necessary.
 
-Then, copy the necessary `templates/hubot_?.env.j2` to 
+Then, copy the necessary `templates/hubot_?.env.j2` to
 `templates/_hubot_?.env.j2` where *?* is your hubot_adapter value, and update
-as necessary with the particular environment variables you need 
+as necessary with the particular environment variables you need
 for your Hubot instance.
 
 Copy `hosts.example` to `hosts` and edit it to update the values for your
@@ -183,6 +183,19 @@ to the `ansible-playbook` command:
 ```
 ansible-playbook -i hosts site.yml --extra-vars "hubot_admin=penelope hubot_adapter=hipchat hubot_identity=penelope hubot_owner='Penelope <penelope@example.com>' hubot_description='A stunning mermaid bot'"
 ```
+## Test the role
+
+The role can be tested with ``Molecule`` (http://molecule.readthedocs.org/en/master/).
+
+The molecule configuration can be found at the root of the role in the ``molecule.yml`` file. The role is tested against ``Ubuntu Trusty 64`` and ``Centos 7``, but platforms can be added if need be.
+
+To setup the test environment run the following commands:
+```
+mkvirtualenv -p $(which python2) molecule
+pip install molecule ansible
+```
+
+To test the role run ``molecule test --platform trusty64`` or ``molecule test --platform centos7``.
 
 ## Dependencies
 

@@ -1,0 +1,14 @@
+---
+- name: Install packages for Debian
+  apt: name={{ item }} state=present update_cache=yes cache_valid_time=86400
+  with_items:
+    - build-essential
+    - curl
+    - expat
+    - git
+    - libicu-dev
+    - openssl
+    - redis-server
+
+- set_fact:
+    redis_server: redis-server

@@ -105,7 +105,7 @@
 
 - Add Slack support
 - Default adapter changed to 'slack'
-- Prefer "private" (_files) first for inclusion
+- Prefer "private" (files) first for inclusion
 - Update variables
 - Update documentation
 - Clean up cruft
@@ -119,6 +119,8 @@
 
 ## v1.5.0
 
-- Node 4.2.2
-- Re-comment hubot slack token var
-
+- Refactor the tasks to avoid duplicated
+- Make the role idempotent
+- Execute the tasks with the appropriate user
+- Make the role testable with molecule
+- Update the docs

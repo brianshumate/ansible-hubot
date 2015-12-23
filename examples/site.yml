@@ -14,5 +14,5 @@
       hubot_admin: vagrant,
       hubot_owner: "'Stephie Andretti <stephie@example.com>'",
       hubot_identity: griptape,
-      hubot_description: Awesomeness 
+      hubot_description: Awesomeness
     }

@@ -1,5 +1,8 @@
 ---
 # handlers/main.yml Handlers for Hubot role
+- name: enable hubot
+  sudo: True
+  service: name=hubot enabled=true
 
 - name: restart hubot
   sudo: True
