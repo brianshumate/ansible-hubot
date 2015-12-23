@@ -24,4 +24,3 @@ mondays = [
 module.exports = (robot) ->
   robot.hear /case of the mondays/i, (msg)->
     msg.send msg.random mondays
-

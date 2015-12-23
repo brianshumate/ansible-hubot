@@ -1,16 +1,13 @@
-## directories
-.vagrant
-
-## files
-
-meta/.galaxy_install_info
+.bundle
+.cache
 .DS_Store
-.tm_properties
-.vagrant
+hosts
 _hubot.env.j2
 _hubot_hipchat.env.j2
 _hubot_slack.env.j2
-hosts
+meta/.galaxy_install_info
+.molecule
 node_modules
 npm-debug.log
-
+.tm_properties
+.vagrant

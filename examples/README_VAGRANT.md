@@ -5,8 +5,8 @@ robot that is sure to bring your team much delight and various values of
 increased productivity.
 
 This Hubot role connects to Slack by default, but it can also connect to
-HipChat by editing `defaults/main.yml`, updating the value of 
-*hubot_adapter*, and adding the appropriate environment variables to 
+HipChat by editing `defaults/main.yml`, updating the value of
+*hubot_adapter*, and adding the appropriate environment variables to
 `templates/hubot_hipchat.env.j2`.
 
 ## Requirements
@@ -42,7 +42,7 @@ These tools are optional, but highly recommended:
 
 Visit the variables defined in `defaults/main.yml` for minimal configuration:
 
-You can find more information in the main project [README](README.md) 
+You can find more information in the main project [README](README.md)
 about these variables.
 
 Then, copy the necessary `templates/hubot_?.env.j2` to `templates/_hubot_?.env.j2` where *?* is your hubot_adapter value, and update as necessary with the
