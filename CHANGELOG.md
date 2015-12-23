@@ -124,3 +124,10 @@
 - Execute the tasks with the appropriate user
 - Make the role testable with molecule
 - Update the docs
+
+## v1.5.1
+
+- Enable some Hubot scripts to provide a minimum of out-of-the-box
+  functionality since their dependencies are being installed already
+- Fix some typos
+- Update documentation

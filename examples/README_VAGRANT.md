@@ -5,18 +5,18 @@ robot that is sure to bring your team much delight and various values of
 increased productivity.
 
 This Hubot role connects to Slack by default, but it can also connect to
-HipChat by editing `defaults/main.yml`, updating the value of
-*hubot_adapter*, and adding the appropriate environment variables to
-`templates/hubot_hipchat.env.j2`.
+HipChat by editing `examples/site.yml`, updating the value of
+*hubot_adapter*, and editing the appropriate HipChat environment variables in
+`defaults/main.yml`.
 
 ## Requirements
 
-This Hubot role requires a Debian based Linux host and is tested to
+This Hubot role requires a Debian or RHEL based Linux host and is tested to
 function on Ubuntu with the following specific software versions:
 
-* Ansible: 1.9.3
-* VirtualBox: 4.3.30
-* Vagrant: 1.7.2
+* Ansible: 1.9.4
+* VirtualBox: 5.0.10
+* Vagrant: 1.7.4
 * Hubot: GitHub Master
 * Node.js: 0.10.37
 * CentOS/RHEL 6
@@ -45,11 +45,8 @@ Visit the variables defined in `defaults/main.yml` for minimal configuration:
 You can find more information in the main project [README](README.md)
 about these variables.
 
-Then, copy the necessary `templates/hubot_?.env.j2` to `templates/_hubot_?.env.j2` where *?* is your hubot_adapter value, and update as necessary with the
-particular environment variables you need for your Hubot.
-
-Finally, update the `site.yml` playbook if you plan to use it and set
-the following:
+Update the `examples/site.yml` playbook if you plan to use it and set
+the following values:
 
 * `hubot_adapter`: Adapter for your chat service (default is 'slack')
 * `hubot_admin`: Operating system username of your bot owner
@@ -65,6 +62,7 @@ bootstrap the bot using a virtualenv with commands like following:
 ```
 mkvirtualenv ansible
 pip install ansible
+cd ANSIBLE_ROLES_PATH/brianshumate.hubot/examples
 vagrant up
 ```
 
@@ -74,5 +72,9 @@ box as an environment variable like so:
 ```
 mkvirtualenv ansible
 pip install ansible
+cd ANSIBLE_ROLES_PATH/brianshumate.hubot/examples
 BOX_NAME="chef/centos-6.5" vagrant up
 ```
+
+**NOTE**: `ANSIBLE_ROLES_PATH` above refers to the path to your Ansible
+roles directory.

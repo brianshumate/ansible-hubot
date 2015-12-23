@@ -20,7 +20,7 @@ This Hubot role requires a Ubuntu or CentOS based Linux host and has been
 tested to function on Ubuntu and CentOS with the following specific
 software versions:
 
-* Ansible: 1.9.3
+* Ansible: 1.9.4
 * Hubot: GitHub Master
 * Node.js: 0.10.37
 * CentOS: 6
@@ -208,3 +208,12 @@ Apache 2
 ## Author Information
 
 [Brian Shumate](http://brianshumate.com)
+
+## Contributors
+
+Thanks very much to these fine folks for contributing to the role:
+
+* [Mikko Ohtamaa](https://github.com/miohtama)
+* [Galaczi Endre Elek](https://github.com/chiller)
+* [Joe Stewart](https://github.com/joestewart)
+* [Rémy Greinhofer](https://github.com/rgreinho)

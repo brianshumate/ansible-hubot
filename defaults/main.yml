@@ -3,12 +3,12 @@
 
 #############################################################################
 #
-# hubot_adapter:              Supported adapter ('slack' or 'hipchat')
+# hubot_adapter:              Supported adapters ('slack' or 'hipchat')
 # hubot_node_version:         Node.js version to use
 # hubot_dir:                  Bot home directory
 # hubot_nvm_dir:              Node Version Manager installation root directory
 # hubot_node_dir:             Node.js installation root directory
-# hubot_global_node_packages: Gloabl Node.js dependencies
+# hubot_global_node_packages: Global Node.js dependencies
 # hubot_all_dirs:             List of directories owned by Hubot admin user
 #
 #############################################################################
@@ -123,34 +123,34 @@ hubot_external_scripts:
 #############################################################################
 
 # hubot_scripts:
-  # - achievement_unlocked.coffee
-  # - ackbar.coffee
-  # - applause.coffee
-  # - ascii.coffee
-  # - base64.coffee
-  # - bees.coffee
-  # - botsnack.coffee
-  # - cat.coffee
-  # - cleverbot.coffee
-  # - coin.coffee
-  # - dealwithit.coffee
-  # - decide.coffee
-  # - fortune.coffee
+  - achievement_unlocked.coffee
+  - ackbar.coffee
+  - applause.coffee
+  - ascii.coffee
+  - base64.coffee
+  - bees.coffee
+  - botsnack.coffee
+  - cat.coffee
+  - cleverbot.coffee
+  - coin.coffee
+  - dealwithit.coffee
+  - decide.coffee
+  - fortune.coffee
   # - github-status.coffee
-  # - grumpycat.coffee
-  # - hackernews.coffee
-  # - megusta.coffee
-  # - ping.coffee
-  # - redis-brain
-  # - reddit
-  # - reddit-jokes.coffee
-  # - reddit-random-top.coffee
-  # - remind.coffee
-  # - stallman.coffee
-  # - twss
+  - grumpycat.coffee
+  - hackernews.coffee
+  - megusta.coffee
+  - ping.coffee
+  - redis-brain
+  - reddit
+  - reddit-jokes.coffee
+  - reddit-random-top.coffee
+  - remind.coffee
+  - stallman.coffee
+  - twss
   # - wunderground.coffee
-  # - xkcd.coffee
-  # - zombies.coffee
+  - xkcd.coffee
+  - zombies.coffee
 
 # EPEL repository URL
 epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
