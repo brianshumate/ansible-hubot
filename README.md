@@ -115,33 +115,8 @@ your own list of scripts.
 
 The optional commented out scripts in `defaults/main.yml`:
 
-* achievement_unlocked.coffee
-* ackbar.coffee
-* applause.coffee
-* ascii.coffee
-* base64.coffee
-* bees.coffee
-* botsnack.coffee
-* cat.coffee
-* cleverbot.coffee
-* coin.coffee
-* dealwithit.coffee
-* decide.coffee
-* fortune.coffee
 * github-status.coffee
-* grumpycat.coffee
-* hackernews.coffee
-* megusta.coffee
-* ping.coffee
-* reddit
-* reddit-jokes.coffee
-* reddit-random-top.coffee
-* remind.coffee
-* stallman.coffee
-* twss
 * wunderground.coffee
-* xkcd.coffee
-* zombies.coffee
 
 You will need to uncomment the appropriate variables in `defaults/main.yml`
 to make use of these scripts and add your own.

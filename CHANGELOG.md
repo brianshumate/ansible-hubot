@@ -131,3 +131,7 @@
   functionality since their dependencies are being installed already
 - Fix some typos
 - Update documentation
+
+## v1.5.2
+
+- More docs updates regarding default scripts
