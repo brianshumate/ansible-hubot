@@ -106,6 +106,15 @@ hubot_external_scripts:
 
 #############################################################################
 #
+# external__git_scripts: A list of additional Hubot scripts to checkout 
+# from git.
+#
+#############################################################################
+# hubot_external_git_scripts:
+#   - { name: hubot-jenkins-userauth, repo_url: "https://github.com/joestewart/hubot-jenkins-userauth.git" }
+
+#############################################################################
+#
 # hubot_custom_scripts: A list of custom additional Hubot scripts in the
 # files/scripts directory to use.
 #
