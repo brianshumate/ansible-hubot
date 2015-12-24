@@ -10,7 +10,7 @@
 # hubot_node_dir:             Node.js installation root directory
 # hubot_global_node_packages: Global Node.js dependencies
 # hubot_all_dirs:             List of directories owned by Hubot admin user
-#
+# hubot_env:                  Environment variables for Hubot adapters
 #############################################################################
 
 hubot_adapter: slack
@@ -106,7 +106,7 @@ hubot_external_scripts:
 
 #############################################################################
 #
-# external__git_scripts: A list of additional Hubot scripts to checkout 
+# hubot_external_git_scripts: A list of additional Hubot scripts to checkout 
 # from git.
 #
 #############################################################################
@@ -165,4 +165,4 @@ hubot_external_scripts:
 epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
 
 # EPEL repository GPG key
-epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+epel_repo_gpg_key: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"

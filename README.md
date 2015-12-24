@@ -1,24 +1,19 @@
 # Ansible Hubot
 
-> **NOTE**: 1.3.0 default change: This role now defaults to installing a
-> Slack based hubot with the `hubot_adapter` variable. Changing the variable
-> value to 'hipchat' will install for HipChat instead.
-
 This is an [Ansible](http://www.ansible.com/) role for
 [Hubot](http://hubot.github.com/), the wonderful chatting robot that is sure
 to bring your team much delight and various values of increased productivity
 throughout the livelong day!
 
-By default this Hubot role uses the Slack adapter, but that can be easily
-changed to work with HipChat by editing `defaults/main.yml`, updating the
-value of *hubot_adapter*, and adding the appropriate environment variables
-to `templates/_hubot_{{hubot_adapter}}.env.j2`.
+By default this Hubot role uses the Slack adapter, but you can change the
+role to work with another adapter like HipChat by editing `defaults/main.yml`,
+updating the value of *hubot_adapter*, and adding the appropriate environment
+variables to `defaults.main.yml` file.
 
 ## Requirements
 
-This Hubot role requires a Ubuntu or CentOS based Linux host and has been
-tested to function on Ubuntu and CentOS with the following specific
-software versions:
+This role requires a Ubuntu or CentOS based Linux host; it's known to function
+on Ubuntu and CentOS with the following software versions:
 
 * Ansible: 1.9.4
 * Hubot: GitHub Master
@@ -28,18 +23,18 @@ software versions:
 
 ## Works with Ansible Galaxy
 
-This role is designed to be installed via the `ansible-galaxy` command
-instead of being directly run from the git repository.
+You can install this role with the `ansible-galaxy` command instead of
+running directly from the git repository.
 
-You should install it like this:
+Install it like this:
 
 ```
 ansible-galaxy install brianshumate.hubot
 ```
 
 You'll want to make sure you have write access to `/etc/ansible/roles/` since
-that is where the role will be installed by default, or define your own
-Ansible role path by creating a `$HOME/.ansible.cfg` file with these contents:
+that is the default installation path, or define your own Ansible role path by
+creating a `$HOME/.ansible.cfg` file with these contents:
 
 ```
 [defaults]
@@ -58,23 +53,25 @@ All role variables should be in `defaults/main.yml`.
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
-| hubot_node_version | 0.10.36 | Preferred Node.js version |
-| hubot_dir      | `/home/<hubot_admin>/hubot` | The Hubot base directory |
-| hubot_nvm_dir  | `/home/<hubot_admin>/.nvm` | Directory for Node Version Manager (nvm) installation |
-| hubot_node_dir | `/home/<hubot_admin>/.nvm/v0.10.33/bin` |
-| hubot_identity | hubot         | The bot's identity or short username |
-| hubot_global_node_packages | List | List of Node.js dependency packages to install globally
-| hubot_all_dirs | List | List of directories owned by Hubot admin user
-| hubot_admin    | vagrant       | OS username of Hubot owner/admin |
-| hubot_adapter  | slack       | Specify preferred chat adapter to use |
-| hubot_description | "'A funny chatting robot'" | Description of bot |
-| hubot_owner | "'Stephie Andretti <stephie@example.com>'" | Name of bot owner |
-| hubot_node_packages | List | List of Node.js dependency packages to install |
-| epel_package  | `epel-release-6-8.noarch.rpm` | EPEL reposiory package file name |
-| epel_url      | "http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm" | EPEL repository URL |
-| hubot_ubuntu_os_packages | List | List of Ubuntu specific OS packages to install
-| hubot_centos_os_packages | List | List of CentOS specific OS packages to install
-|hubot_custom_scripts | List | A list of additional Hubot scripts to use
+| `hubot_adapter`  | slack       | Preferred chat adapter to use |
+| `hubot_node_version` | 0.10.36 | Preferred Node.js version |
+| `hubot_dir`      | path | Hubot base directory |
+| `hubot_nvm_dir`  | path | Node Version Manager (nvm) installation directory |
+| `hubot_node_dir` | path |
+| `hubot_global_node_packages` | list | Node.js dependency packages to install globally |
+| `hubot_all_dirs` | list | Directories owned by Hubot admin user |
+| `hubot_env` | list | Environment variables for Hubot adapters |
+| `hubot_admin`    | vagrant | OS username of Hubot owner/admin |
+| `hubot_identity` | hubot | Bot user name |
+| `hubot_owner` | "'Stephie Andretti <stephie@example.com>'" | Bot owner |
+| `hubot_description` | "'A helpful chat robot'" | Bot description|
+| `hubot_node_packages` | list | Node.js dependency packages to install |
+| `external_scripts` | list | External third-party Hubot scripts to use |
+| `hubot_external_git_scripts` | list | Scripts to clone from GitHub repositories |
+| `hubot_custom_scripts` | list | Scripts to use from `files/scripts` directory |
+| `hubot_scripts` | list | Base scripts included with Hubot to use |
+| `epel_repo_gpg_key`  | path | EPEL GPG key URL |
+| `epel_repo_url`      | URL | EPEL repository URL |
 
 ## Node Packages
 
@@ -101,8 +98,8 @@ The `hubot_os_packages` defines following OS dependency packages:
 * libexpat1-dev
 * redis-server
 
-Most of these packages are required with the exception of `redis-server`,
-which is a dependency of the Hubot `redis-brain` script.
+The role requires most of the above packages; the `redis-server` package
+is an dependency of the Hubot `redis-brain` script.
 
 ### Scripts
 
@@ -140,8 +137,8 @@ Hubot host. Be sure to change the following values:
 * `ubuntu`
 * `~/.ssh/hubot_id`
 
-Finally, update the `site.yml` playbook if you plan to use it and set
-`hubot_identity` to the short username of your bot.
+Update the `site.yml` playbook if you plan to use it and set `hubot_identity`
+to the short user name of your bot.
 
 ## Example Playbook
 
@@ -160,11 +157,14 @@ ansible-playbook -i hosts site.yml --extra-vars "hubot_admin=penelope hubot_adap
 ```
 ## Test the role
 
-The role can be tested with ``Molecule`` (http://molecule.readthedocs.org/en/master/).
+You can test the role with [Molecule](http://molecule.readthedocs.org/en/master/).
 
-The molecule configuration can be found at the root of the role in the ``molecule.yml`` file. The role is tested against ``Ubuntu Trusty 64`` and ``Centos 7``, but platforms can be added if need be.
+The molecule configuration resides at the root of the role in the
+`molecule.yml` file. This role is tested against Ubuntu Trusty 64 and
+Centos 7, but you can add other platforms if needed.
 
 To setup the test environment run the following commands:
+
 ```
 mkvirtualenv -p $(which python2) molecule
 pip install molecule ansible
@@ -186,9 +186,12 @@ Apache 2
 
 ## Contributors
 
-Thanks very much to these fine folks for contributing to the role:
+Much thanks to these fine folks for contributing to the role:
 
 * [Mikko Ohtamaa](https://github.com/miohtama)
 * [Galaczi Endre Elek](https://github.com/chiller)
 * [Joe Stewart](https://github.com/joestewart)
 * [Rémy Greinhofer](https://github.com/rgreinho)
+
+If you want to contribute, please file an issue or pull request at the
+[GitHub project repository](https://github.com/brianshumate/ansible-hubot)

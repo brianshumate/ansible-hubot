@@ -135,3 +135,9 @@
 ## v1.5.2
 
 - More docs updates regarding default scripts
+
+## v1.5.3
+
+- Merge feature to allow for git checkouts of scripts (thanks @joestewart )
+- Update some variables
+- Update documentation about git checkout scripts

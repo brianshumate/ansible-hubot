@@ -11,7 +11,7 @@
 
 - name: Import EPEL GPG key.
   rpm_key:
-    key: "{{ epel_repo_gpg_key_url }}"
+    key: "{{ epel_repo_gpg_key }}"
     state: present
 
 - name: install the 'Development tools' package group
