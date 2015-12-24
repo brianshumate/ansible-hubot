@@ -94,6 +94,26 @@
   tags:
     - hubot_scripts
 
+- name: Install hubot external git scripts
+  sudo: False
+  git: "repo={{ item.repo_url }} version={{ item.version | default('master') }} dest={{ hubot_dir }}/node_modules/{{ item.name }}"
+  with_items: "hubot_external_git_scripts"
+  when: hubot_external_git_scripts is defined
+  notify:
+    - restart hubot
+  tags:
+    - hubot_scripts
+
+- name: Install hubot git scripts
+  sudo: False
+  git: "repo={{ item.repo_url }} version={{ item.version | default('master') }} dest={{ hubot_dir }}/scripts/{{ item.name }}"
+  with_items: "hubot_git_scripts"
+  when: hubot_git_scripts is defined
+  notify:
+    - restart hubot
+  tags:
+    - hubot_scripts
+
 - name: Configure Hubot scripts
   sudo: True
   sudo_user: "{{ hubot_admin }}"
