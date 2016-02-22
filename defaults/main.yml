@@ -131,7 +131,7 @@ hubot_external_scripts:
 #
 #############################################################################
 
-# hubot_scripts:
+hubot_scripts:
   - achievement_unlocked.coffee
   - ackbar.coffee
   - applause.coffee
