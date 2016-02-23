@@ -167,6 +167,7 @@
     state: started
 
 - name: Install service init script
+  sudo: True
   template:
     src: hubot.init.j2
     dest: /etc/init.d/hubot
