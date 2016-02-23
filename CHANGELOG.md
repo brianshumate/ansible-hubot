@@ -141,3 +141,10 @@
 - Merge feature to allow for git checkouts of scripts (thanks @joestewart )
 - Update some variables
 - Update documentation about git checkout scripts
+
+## v1.6.0
+
+- Use become / become_user
+- Install init script as root on Red Hat (thanks @craigw)
+- Cleanup Hubot scripts (thanks @craigw)
+- YAML file headings

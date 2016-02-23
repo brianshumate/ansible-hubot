@@ -95,14 +95,6 @@ hubot_node_packages:
 hubot_external_scripts:
   - hubot-redis-brain
   - hubot-help
-  # - hubot-calculator
-  # - hubot-diagnostics
-  # - hubot-hipchat-emoticons
-  # - hubot-google-images
-  # - hubot-maps
-  # - hubot-rules
-  # - hubot-google-translate
-  # - hubot-youtube
 
 #############################################################################
 #
@@ -110,20 +102,16 @@ hubot_external_scripts:
 # from git.
 #
 #############################################################################
+#
 # hubot_external_git_scripts:
 #   - { name: hubot-jenkins-userauth, repo_url: "https://github.com/joestewart/hubot-jenkins-userauth.git" }
-
+#
 #############################################################################
 #
 # hubot_custom_scripts: A list of custom additional Hubot scripts in the
 # files/scripts directory to use.
 #
 #############################################################################
-
-# hubot_custom_scripts:
-  # - caseofmondays.coffee
-  # - dogatcomputer.coffee
-  # - ignoreme.coffee
 
 #############################################################################
 #
@@ -145,7 +133,6 @@ hubot_scripts:
   - dealwithit.coffee
   - decide.coffee
   - fortune.coffee
-  # - github-status.coffee
   - grumpycat.coffee
   - hackernews.coffee
   - megusta.coffee
@@ -157,7 +144,6 @@ hubot_scripts:
   - remind.coffee
   - stallman.coffee
   - twss
-  # - wunderground.coffee
   - xkcd.coffee
   - zombies.coffee
 

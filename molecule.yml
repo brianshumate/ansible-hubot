@@ -1,4 +1,6 @@
 ---
+# File: molecule.yml - Molecule role testing
+
 ansible:
   config_file: .molecule/ansible.cfg
 

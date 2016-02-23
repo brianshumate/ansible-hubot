@@ -1,4 +1,6 @@
 ---
+# File: test_playbook.yml - Test playbook
+
 - name: Test the hubot role
   hosts: all
   vars:

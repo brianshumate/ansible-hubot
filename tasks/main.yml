@@ -1,17 +1,21 @@
 ---
+# File: tasks/main.yml - Main tasks for ansible-hubot
+
 - include: install_packages_Debian.yml
-  sudo: True
+  become: True
+  become_user: root
   tags: package
   when: "ansible_os_family == 'Debian'"
 
 - include: install_packages_RedHat.yml
-  sudo: True
+  become: True
+  become_user: root
   tags: package
   when: "ansible_os_family == 'RedHat'"
 
 - name: Install Node Version Manager
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   git:
     repo: https://github.com/creationix/nvm.git
     dest: "{{ hubot_nvm_dir }}"
@@ -20,8 +24,8 @@
     - node_nvm
 
 - name: Install Node.js
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm install {{ hubot_node_version }}"
   args:
     creates: "{{ hubot_node_dir }}"
@@ -31,8 +35,8 @@
     - node_packages
 
 - name: Install hubot global dependencies
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   npm:
     name: "{{ item }}"
     executable: "{{ hubot_node_dir }}/bin/npm"
@@ -44,16 +48,16 @@
     - node_packages
 
 - name: Assemble Hubot
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm use {{ hubot_node_version }} && echo 'n' | yo hubot --adapter={{ hubot_adapter }} --owner={{ hubot_owner }} --name={{ hubot_identity }} --description={{ hubot_description }} --defaults chdir={{ hubot_dir }}"
   args:
     executable: /bin/bash
   changed_when: False
 
 - name: Install hubot dependencies
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   npm:
     name: "{{ item }}"
     executable: "{{ hubot_node_dir }}/bin/npm"
@@ -64,8 +68,8 @@
     - node_packages
 
 - name: Define Hubot environment
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   template:
     src: hubot.env.j2
     dest: "{{ hubot_dir }}/{{ hubot_identity }}.env"
@@ -73,15 +77,15 @@
     - hubot_environment
 
 - name: Install Hubot start script
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   template:
     src: start-hubot.sh.j2
     dest: "{{ hubot_dir }}/bin/start-hubot"
     mode: "0744"
 
 - name: Install custom Hubot scripts
-  sudo: False
+  become: False
   copy:
     src: "scripts/{{ item }}"
     dest: "{{ hubot_dir }}/scripts/{{ item }}"
@@ -95,7 +99,7 @@
     - hubot_scripts
 
 - name: Install hubot external git scripts
-  sudo: False
+  become: False
   git: "repo={{ item.repo_url }} version={{ item.version | default('master') }} dest={{ hubot_dir }}/node_modules/{{ item.name }}"
   with_items: "hubot_external_git_scripts"
   when: hubot_external_git_scripts is defined
@@ -105,7 +109,7 @@
     - hubot_scripts
 
 - name: Install hubot git scripts
-  sudo: False
+  become: False
   git: "repo={{ item.repo_url }} version={{ item.version | default('master') }} dest={{ hubot_dir }}/scripts/{{ item.name }}"
   with_items: "hubot_git_scripts"
   when: hubot_git_scripts is defined
@@ -115,8 +119,8 @@
     - hubot_scripts
 
 - name: Configure Hubot scripts
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   template:
     src: hubot-scripts.json.j2
     dest: "{{ hubot_dir }}/hubot-scripts.json"
@@ -127,8 +131,8 @@
     - hubot_scripts
 
 - name: Configure Hubot external scripts
-  sudo: True
-  sudo_user: "{{ hubot_admin }}"
+  become: True
+  become_user: "{{ hubot_admin }}"
   template:
     src: external-scripts.json.j2
     dest: "{{ hubot_dir }}/external-scripts.json"
@@ -150,7 +154,8 @@
     - hubot_environment
 
 - name: Hubot home ownership
-  sudo: True
+  become: True
+  become_user: root
   file:
     path: "{{ item }}"
     owner: "{{ hubot_admin }}"
@@ -161,13 +166,15 @@
     - hubot_environment
 
 - name: Start Redis
-  sudo: True
+  become: True
+  become_user: root
   service:
     name: "{{ redis_server }}"
     state: started
 
 - name: Install service init script
-  sudo: True
+  become: True
+  become_user: root
   template:
     src: hubot.init.j2
     dest: /etc/init.d/hubot
@@ -178,7 +185,8 @@
     - restart hubot
 
 - name: Install Upstart script
-  sudo: True
+  become: True
+  become_user: root
   template:
     src: hubot.conf.j2
     dest: /etc/init/hubot.conf
