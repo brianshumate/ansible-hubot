@@ -197,3 +197,8 @@
     - restart hubot
   tags:
     - hubot_service
+
+- name: Start Hubot
+   service:
+     name: "hubot"
+     state: started
