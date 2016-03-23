@@ -1,6 +1,8 @@
 .bundle
 .cache
 .DS_Store
+*.retry
+cs
 hosts
 _hubot.env.j2
 _hubot_hipchat.env.j2
@@ -9,5 +11,5 @@ meta/.galaxy_install_info
 .molecule
 node_modules
 npm-debug.log
-.tm_properties
 .vagrant
+yobot.yml

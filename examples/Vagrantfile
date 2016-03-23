@@ -8,6 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 BOX_MEM = ENV['BOX_MEM'] || "1536"
 BOX_NAME =  ENV['BOX_NAME'] || "ubuntu/trusty64"
 BOT_HOST = ENV['BOT_HOST'] || "vagrant_hosts"
+PLAYBOOK = ENV['PLAYBOOK'] || "site.yml"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :hubot do |hubot_config|
@@ -25,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     hubot_config.vm.provision :ansible do |ansible|
       ansible.inventory_path = BOT_HOST
-      ansible.playbook = "site.yml"
+      ansible.playbook = PLAYBOOK
     end
   end
 end

@@ -43,7 +43,7 @@
     path: "{{ hubot_dir }}"
     state: present
     global: yes
-  with_items: hubot_global_node_packages
+  with_items: "{{ hubot_global_node_packages }}"
   tags:
     - node_packages
 
@@ -55,7 +55,7 @@
     executable: /bin/bash
   changed_when: False
 
-- name: Install hubot dependencies
+- name: Install hubot Node dependencies
   become: True
   become_user: "{{ hubot_admin }}"
   npm:
@@ -63,7 +63,7 @@
     executable: "{{ hubot_node_dir }}/bin/npm"
     path: "{{ hubot_dir }}"
     state: present
-  with_items: hubot_node_packages
+  with_items: "{{ hubot_node_packages }}"
   tags:
     - node_packages
 
@@ -101,7 +101,7 @@
 - name: Install hubot external git scripts
   become: False
   git: "repo={{ item.repo_url }} version={{ item.version | default('master') }} dest={{ hubot_dir }}/node_modules/{{ item.name }}"
-  with_items: "hubot_external_git_scripts"
+  with_items: hubot_external_git_scripts
   when: hubot_external_git_scripts is defined
   notify:
     - restart hubot
@@ -111,7 +111,7 @@
 - name: Install hubot git scripts
   become: False
   git: "repo={{ item.repo_url }} version={{ item.version | default('master') }} dest={{ hubot_dir }}/scripts/{{ item.name }}"
-  with_items: "hubot_git_scripts"
+  with_items: hubot_git_scripts
   when: hubot_git_scripts is defined
   notify:
     - restart hubot
@@ -161,7 +161,7 @@
     owner: "{{ hubot_admin }}"
     group: "{{ hubot_admin }}"
     recurse: "yes"
-  with_items: hubot_all_dirs
+  with_items: "{{ hubot_all_dirs }}"
   tags:
     - hubot_environment
 
@@ -178,8 +178,8 @@
   template:
     src: hubot.init.j2
     dest: /etc/init.d/hubot
-    mode: "0744"
-  when: "ansible_os_family == 'RedHat'"
+    mode: "0755"
+  when: (ansible_os_family == "RedHat" and ansible_distribution_major_version < "7")
   notify:
     - enable hubot
     - restart hubot
@@ -190,8 +190,23 @@
   template:
     src: hubot.conf.j2
     dest: /etc/init/hubot.conf
-    mode: "0644"
-  when: "ansible_os_family == 'Debian'"
+    mode: "0755"
+  when: (ansible_os_family == "Debian" and ansible_distribution_major_version < "15")
+  notify:
+    - enable hubot
+    - restart hubot
+  tags:
+    - hubot_service
+
+- name: Install systemd unit
+  become: True
+  become_user: root
+  template:
+    src: hubot.service.j2
+    dest: /etc/systemd/system/hubot.service
+    mode: "0755"
+  when: (ansible_os_family == "Debian" and ansible_distribution_major_version >= "15") or
+        (ansible_os_family == "RedHat" and ansible_distribution_major_version > "6")
   notify:
     - enable hubot
     - restart hubot
@@ -199,6 +214,4 @@
     - hubot_service
 
 - name: Start Hubot
-   service:
-     name: "hubot"
-     state: started
+  service: name=hubot state=started

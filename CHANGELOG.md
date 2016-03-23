@@ -148,3 +148,11 @@
 - Install init script as root on Red Hat (thanks @craigw)
 - Cleanup Hubot scripts (thanks @craigw)
 - YAML file headings
+
+## v1.6.1
+
+- Ensure service is started at end of tasks
+- Add systemd unit
+- Additional node modules
+- Use become
+- Make playbook filename a variable in Vagrantfile

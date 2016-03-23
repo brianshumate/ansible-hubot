@@ -2,17 +2,21 @@
 # File handlers/main.yml Handlers for Hubot role
 
 - name: enable hubot
-  sudo: True
+  become: True
+  become_user: root
   service: name=hubot enabled=true
 
 - name: restart hubot
-  sudo: True
+  become: True
+  become_user: root
   service: name=hubot state=restarted
 
 - name: start hubot
-  sudo: True
+  become: True
+  become_user: root
   service: name=hubot state=started
 
 - name: stop hubot
-  sudo: True
+  become: True
+  become_user: root
   service: name=hubot state=stopped

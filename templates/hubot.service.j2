@@ -1,0 +1,10 @@
+[Unit]
+Description=Hubot
+
+[Service]
+EnvironmentFile={{ hubot_dir }}/{{ hubot_identity }}.env
+User={{ hubot_admin }}
+ExecStart={{ hubot_dir }}/bin/start-hubot
+
+[Install]
+WantedBy=multi-user.target
