@@ -134,7 +134,7 @@
 
 - name: Configure Hubot external scripts
   become: True
-  become_user: "{{ hubot_admin }}"
+  become_user: root
   template:
     src: external-scripts.json.j2
     dest: "{{ hubot_dir }}/external-scripts.json"

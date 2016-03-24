@@ -3,6 +3,9 @@
 
 #############################################################################
 #
+# hubot_admin:                User account that will run the bot; for
+#                             operating in development mode with Vagrant,
+#                             this value should be "vagrant".
 # hubot_adapter:              Supported adapters ('slack' or 'hipchat')
 # hubot_node_version:         Node.js version to use
 # hubot_dir:                  Bot home directory
@@ -13,13 +16,17 @@
 # hubot_env:                  Environment variables for Hubot adapters
 #############################################################################
 
+hubot_admin: vagrant
+
 hubot_adapter: slack
 
 hubot_node_version: 0.10.37
 
-hubot_dir: "/home/{{ hubot_admin }}/hubot"
+hubot_admin_dir: "/home/{{ hubot_admin }}"
 
-hubot_nvm_dir: "/home/{{ hubot_admin }}/.nvm"
+hubot_dir: "{{ hubot_admin_dir }}/hubot"
+
+hubot_nvm_dir: "{{ hubot_admin_dir }}/.nvm"
 
 hubot_node_dir: "{{ hubot_nvm_dir }}/v{{ hubot_node_version }}"
 
@@ -31,7 +38,7 @@ hubot_global_node_packages:
 hubot_all_dirs:
   - "{{ hubot_dir }}"
   - "{{ hubot_nvm_dir }}"
-  - "/home/{{ hubot_admin }}/.npm"
+  - "{{ hubot_admin_dir }}/.npm"
 
 hubot_env:
    # General Hubot stuff
@@ -55,17 +62,12 @@ hubot_env:
 
 #############################################################################
 #
-# hubot_admin:                User account that will run the bot; for
-#                             operating in development mode with Vagrant,
-#                             this value should be "vagrant".
 # hubot_identity:             Bot user name
 # hubot_description:          Description of bot
 # hubot_owner:                Name of bot owner
 # hubot_node_packages:        Node.js dependencies
 #
 #############################################################################
-
-hubot_admin: vagrant
 
 hubot_identity: hubot
 

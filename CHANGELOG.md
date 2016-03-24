@@ -160,3 +160,9 @@
 ## v1.6.2
 
 - Ensure service is restarted after environment changes (thanks @emanuelis)
+
+## v1.6.3
+
+- More granular admin user directory variables
+- Become user fix
+- Updated documentation

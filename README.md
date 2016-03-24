@@ -53,6 +53,7 @@ All role variables should be in `defaults/main.yml`.
 
 | Name           | Default Value | Description                        |
 | -------------- | ------------- | -----------------------------------|
+| `hubot_admin`    | vagrant | OS username of Hubot owner/admin |
 | `hubot_adapter`  | slack       | Preferred chat adapter to use |
 | `hubot_node_version` | 0.10.36 | Preferred Node.js version |
 | `hubot_dir`      | path | Hubot base directory |
@@ -61,7 +62,6 @@ All role variables should be in `defaults/main.yml`.
 | `hubot_global_node_packages` | list | Node.js dependency packages to install globally |
 | `hubot_all_dirs` | list | Directories owned by Hubot admin user |
 | `hubot_env` | list | Environment variables for Hubot adapters |
-| `hubot_admin`    | vagrant | OS username of Hubot owner/admin |
 | `hubot_identity` | hubot | Bot user name |
 | `hubot_owner` | "'Stephie Andretti <stephie@example.com>'" | Bot owner |
 | `hubot_description` | "'A helpful chat robot'" | Bot description|
@@ -186,4 +186,4 @@ Apache 2
 
 ## Contributors
 
-See CONTRIBUTORS.md
+See CONTIRBUTORS.MD
