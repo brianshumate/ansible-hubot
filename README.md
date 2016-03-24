@@ -186,13 +186,4 @@ Apache 2
 
 ## Contributors
 
-Much thanks to these fine folks for contributing to the role:
-
-* [Mikko Ohtamaa](https://github.com/miohtama)
-* [Galaczi Endre Elek](https://github.com/chiller)
-* [Joe Stewart](https://github.com/joestewart)
-* [Rémy Greinhofer](https://github.com/rgreinho)
-* [Craig R Webster](https://github.com/craigw)
-
-If you want to contribute, please file an issue or pull request at the
-[GitHub project repository](https://github.com/brianshumate/ansible-hubot)
+See CONTRIBUTORS.md

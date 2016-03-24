@@ -75,6 +75,8 @@
     dest: "{{ hubot_dir }}/{{ hubot_identity }}.env"
   tags:
     - hubot_environment
+  notify:
+    - restart hubot
 
 - name: Install Hubot start script
   become: True

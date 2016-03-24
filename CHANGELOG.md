@@ -151,8 +151,12 @@
 
 ## v1.6.1
 
-- Ensure service is started at end of tasks
-- Add systemd unit
+- Ensure service is started at end of tasks (thanks @emanuelis)
+- Add systemd unit (thanks @emanuelis)
 - Additional node modules
 - Use become
 - Make playbook filename a variable in Vagrantfile
+
+## v1.6.2
+
+- Ensure service is restarted after environment changes (thanks @emanuelis)
