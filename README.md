@@ -66,9 +66,10 @@ All role variables should be in `defaults/main.yml`.
 | `hubot_owner` | "'Stephie Andretti <stephie@example.com>'" | Bot owner |
 | `hubot_description` | "'A helpful chat robot'" | Bot description|
 | `hubot_node_packages` | list | Node.js dependency packages to install |
-| `external_scripts` | list | External third-party Hubot scripts to use |
-| `hubot_external_git_scripts` | list | Scripts to clone from GitHub repositories |
+| `hubot_external_scripts` | list | External third-party Hubot scripts to use |
+| `hubot_external_git_scripts` | list | External third-party Hubot scripts to clone from Git repositories |
 | `hubot_custom_scripts` | list | Scripts to use from `files/scripts` directory |
+| `hubot_git_scripts` | list | Scripts to clone from Git repositories |
 | `hubot_scripts` | list | Base scripts included with Hubot to use |
 | `epel_repo_gpg_key`  | path | EPEL GPG key URL |
 | `epel_repo_url`      | URL | EPEL repository URL |
