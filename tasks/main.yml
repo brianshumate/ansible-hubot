@@ -120,18 +120,6 @@
   tags:
     - hubot_scripts
 
-- name: Configure Hubot scripts
-  become: True
-  become_user: "{{ hubot_admin }}"
-  template:
-    src: hubot-scripts.json.j2
-    dest: "{{ hubot_dir }}/hubot-scripts.json"
-  when: hubot_scripts is defined
-  notify:
-    - restart hubot
-  tags:
-    - hubot_scripts
-
 - name: Configure Hubot external scripts
   become: True
   become_user: root

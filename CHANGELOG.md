@@ -166,3 +166,10 @@
 - More granular admin user directory variables
 - Become user fix
 - Updated documentation
+
+## v1.7.0
+
+- Update to Node 4.x
+- Remove all scripts which do not have packaged versions
+- Remove deprecated hubot-scripts.json functionality and variables
+- Update documentation

@@ -15,9 +15,9 @@ variables to `defaults.main.yml` file.
 This role requires a Ubuntu or CentOS based Linux host; it's known to function
 on Ubuntu and CentOS with the following software versions:
 
-* Ansible: 1.9.4
+* Ansible: 2.1.0.0
 * Hubot: GitHub Master
-* Node.js: 0.10.37
+* Node.js: 4.4.7
 * CentOS: 6
 * Ubuntu: 14.04, 13.10, 13.04, 12.10, 12.04
 
@@ -70,7 +70,6 @@ All role variables should be in `defaults/main.yml`.
 | `hubot_external_git_scripts` | list | External third-party Hubot scripts to clone from Git repositories |
 | `hubot_custom_scripts` | list | Scripts to use from `files/scripts` directory |
 | `hubot_git_scripts` | list | Scripts to clone from Git repositories |
-| `hubot_scripts` | list | Base scripts included with Hubot to use |
 | `epel_repo_gpg_key`  | path | EPEL GPG key URL |
 | `epel_repo_url`      | URL | EPEL repository URL |
 
@@ -79,13 +78,25 @@ All role variables should be in `defaults/main.yml`.
 The `hubot_node_packages` defines the following Node.js dependency packages:
 
 * cheerio
+* chrono-node
 * clark
-* cleverbot-node
 * htmlparser
+* hubot-ascii-art
+* hubot-coin
 * hubot-calculator
 * hubot-hipchat-emoticons
+* hubot-{{ hubot_adapter }}
+* hubot-redis-brain
+* hubot-scripts
+* hubot-xkcd
+* hubot-youtube
+* lodash
+* moment
 * nodepie
 * soupselect
+* textspark
+
+Note that newer Hubot scripts are now also node modules.
 
 The `hubot_centos_os_packages` and `hubot_ubuntu_os_packages` variables
 define OS packages required by Hubot; they should be fine as-is.
@@ -99,28 +110,12 @@ The `hubot_os_packages` defines following OS dependency packages:
 * libexpat1-dev
 * redis-server
 
-The role requires most of the above packages; the `redis-server` package
-is an dependency of the Hubot `redis-brain` script.
+Redis required for redis brain functionality.
 
 ### Scripts
 
-You can enable Hubot scripts by uncommenting or adding them to
-the `hubot_scripts` variable.
-
-The project includes a reasonable set of custom scripts befitting something
-akin to an engineering team, but if you prefer, you can replace them with
-your own list of scripts.
-
-The optional commented out scripts in `defaults/main.yml`:
-
-* github-status.coffee
-* wunderground.coffee
-
-You will need to uncomment the appropriate variables in `defaults/main.yml`
-to make use of these scripts and add your own.
-
-If you add more custom scripts be sure to add any Node.js dependencies
-required by the scripts to the `hubot_node_packages` variable list as well.
+You can enable more Hubot scripts by adding them to the 
+`hubot_node_packages` and `hubot_external_scripts` variables.
 
 ## Configuration
 
