@@ -93,7 +93,7 @@
     dest: "{{ hubot_dir }}/scripts/{{ item }}"
     owner: "{{ hubot_admin }}"
     mode: "0644"
-  with_items: hubot_custom_scripts
+  with_items: "{{ hubot_custom_scripts }}"
   when: hubot_custom_scripts is defined
   notify:
     - restart hubot
@@ -103,7 +103,7 @@
 - name: Install hubot external git scripts
   become: False
   git: "repo={{ item.repo_url }} version={{ item.version | default('master') }} dest={{ hubot_dir }}/node_modules/{{ item.name }}"
-  with_items: hubot_external_git_scripts
+  with_items: "{{ hubot_external_git_scripts }}"
   when: hubot_external_git_scripts is defined
   notify:
     - restart hubot

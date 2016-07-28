@@ -187,3 +187,6 @@
 - Fix bare variable issue
 - Fix custom scripts
 
+## v1.7.3
+
+- Fix more bare variable issues
