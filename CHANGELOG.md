@@ -173,3 +173,11 @@
 - Remove all scripts which do not have packaged versions
 - Remove deprecated hubot-scripts.json functionality and variables
 - Update documentation
+
+## v1.7.1
+
+- Remove hubot-scripts package (it was breaking startup)
+- More defaults cleanup
+- Fix contributors page
+- Clean up custom scripts - with hubot_custom_scripts == true all scripts in
+  files/scripts will be installed as well

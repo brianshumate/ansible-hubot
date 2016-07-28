@@ -85,7 +85,6 @@ hubot_node_packages:
   - hubot-calculator
   - hubot-{{ hubot_adapter }}
   - hubot-redis-brain
-  - hubot-scripts
   - hubot-xkcd
   - hubot-youtube
   - lodash
@@ -110,20 +109,20 @@ hubot_external_scripts:
 
 #############################################################################
 #
-# hubot_external_git_scripts: A list of additional Hubot scripts to checkout 
-# from git.
+# hubot_custom_scripts: Boolean — Install all scripts from files/scripts
 #
 #############################################################################
+
+hubot_custom_scripts: false
+
+#############################################################################
 #
+# hubot_external_git_scripts: A list of additional Hubot scripts to
+#                             check out from git repositories
+#############################################################################
+
 # hubot_external_git_scripts:
 #   - { name: hubot-jenkins-userauth, repo_url: "https://github.com/joestewart/hubot-jenkins-userauth.git" }
-#
-#############################################################################
-#
-# hubot_custom_scripts: A list of custom additional Hubot scripts in the
-# files/scripts directory to use.
-#
-#############################################################################
 
 # EPEL repository URL
 epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
