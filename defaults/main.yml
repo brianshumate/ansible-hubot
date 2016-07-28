@@ -109,11 +109,14 @@ hubot_external_scripts:
 
 #############################################################################
 #
-# hubot_custom_scripts: Boolean — Install all scripts from files/scripts
+# hubot_custom_scripts: List of scripts from files/scripts to install
 #
 #############################################################################
 
-hubot_custom_scripts: false
+# hubot_custom_scripts:
+#   - caseofmondays.coffee
+#   - dogatcomputer.coffee
+#   - ignoreme.coffee
 
 #############################################################################
 #

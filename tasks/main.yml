@@ -94,7 +94,7 @@
     owner: "{{ hubot_admin }}"
     mode: "0644"
   with_items: hubot_custom_scripts
-  when: hubot_custom_scripts == "true"
+  when: hubot_custom_scripts is defined
   notify:
     - restart hubot
   tags:

@@ -181,3 +181,9 @@
 - Fix contributors page
 - Clean up custom scripts - with hubot_custom_scripts == true all scripts in
   files/scripts will be installed as well
+
+## v1.7.2
+
+- Fix bare variable issue
+- Fix custom scripts
+
