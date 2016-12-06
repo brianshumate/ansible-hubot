@@ -34,18 +34,36 @@
   tags:
     - node_packages
 
+# FIXME
+# This is now broken due to:
+# https://github.com/ansible/ansible-modules-extras/issues/2128
+# 
+# - name: Install hubot global dependencies
+#   become: True
+#   become_user: "{{ hubot_admin }}"
+#   npm:
+#     name: "{{ item }}"
+#     executable: "{{ hubot_node_dir }}/bin/npm"
+#     path: "{{ hubot_dir }}"
+#     state: present
+#     global: yes
+#   with_items: "{{ hubot_global_node_packages }}"
+#   tags:
+#     - node_packages
+
+# Doing things the hard way™ until above is fixed
 - name: Install hubot global dependencies
   become: True
   become_user: "{{ hubot_admin }}"
-  npm:
-    name: "{{ item }}"
-    executable: "{{ hubot_node_dir }}/bin/npm"
-    path: "{{ hubot_dir }}"
-    state: present
-    global: yes
+  shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm use {{ hubot_node_version }} && npm i -g {{ item }}"
+  args:
+    executable: /bin/bash
   with_items: "{{ hubot_global_node_packages }}"
   tags:
     - node_packages
+
+- name: Hubot home
+  file: "path={{ hubot_dir }} state=directory owner={{ hubot_admin }}"
 
 - name: Assemble Hubot
   become: True
@@ -55,14 +73,29 @@
     executable: /bin/bash
   changed_when: False
 
+# FIXME
+# This is now broken due to:
+# https://github.com/ansible/ansible-modules-extras/issues/2128
+# 
+# - name: Install hubot Node dependencies
+#   become: True
+#   become_user: "{{ hubot_admin }}"
+#   npm:
+#     name: "{{ item }}"
+#     executable: "{{ hubot_node_dir }}/bin/npm"
+#     path: "{{ hubot_dir }}"
+#     state: present
+#   with_items: "{{ hubot_node_packages }}"
+#   tags:
+#     - node_packages
+
+# Doing things the hard way™ until above is fixed
 - name: Install hubot Node dependencies
   become: True
   become_user: "{{ hubot_admin }}"
-  npm:
-    name: "{{ item }}"
-    executable: "{{ hubot_node_dir }}/bin/npm"
-    path: "{{ hubot_dir }}"
-    state: present
+  shell: "source {{ hubot_nvm_dir }}/nvm.sh && nvm use {{ hubot_node_version }} && npm i {{ item }}"
+  args:
+    executable: /bin/bash
   with_items: "{{ hubot_node_packages }}"
   tags:
     - node_packages

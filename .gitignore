@@ -10,3 +10,4 @@ meta/.galaxy_install_info
 node_modules
 npm-debug.log
 yobot.yml
+site_lt.yml

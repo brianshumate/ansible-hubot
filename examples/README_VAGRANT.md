@@ -14,11 +14,11 @@ HipChat by editing `examples/site.yml`, updating the value of
 This Hubot role requires a Debian or RHEL based Linux host and is tested to
 function on Ubuntu with the following specific software versions:
 
-* Ansible: 1.9.4
-* VirtualBox: 5.0.10
-* Vagrant: 1.7.4
+* Ansible: 2.2.0.0
+* VirtualBox: 5.1.10
+* Vagrant: 1.9.0
 * Hubot: GitHub Master
-* Node.js: 0.10.37
+* Node.js: 6.9.1
 * CentOS/RHEL 6
 * Ubuntu: 14.04, 13.10, 13.04, 12.10, 12.04
 

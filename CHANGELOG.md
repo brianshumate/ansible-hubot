@@ -173,3 +173,11 @@
 - Remove all scripts which do not have packaged versions
 - Remove deprecated hubot-scripts.json functionality and variables
 - Update documentation
+
+## v1.8.0
+
+- Update Node version
+- Update tested dependency versions
+- Add metrics
+- Workaround issue with Ansible npm module [GH-2128]
+- Update README

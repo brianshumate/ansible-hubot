@@ -20,7 +20,7 @@ hubot_admin: vagrant
 
 hubot_adapter: slack
 
-hubot_node_version: 4.4.7
+hubot_node_version: 6.9.1
 
 hubot_admin_dir: "/home/{{ hubot_admin }}"
 

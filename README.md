@@ -1,5 +1,10 @@
 # Ansible Hubot
 
+[![Build Status](https://travis-ci.org/brianshumate/ansible-hubot.svg?branch=master)](https://travis-ci.org/brianshumate/ansible-hubot)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-brianshumate.consul-blue.svg)](https://galaxy.ansible.com/brianshumate/hubot/)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/brianshumate/ansible-hubot.svg)](http://isitmaintained.com/project/brianshumate/ansible-hubot "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/brianshumate/ansible-hubot.svg)](http://isitmaintained.com/project/brianshumate/ansible-hubot "Percentage of issues still open")
+
 This is an [Ansible](http://www.ansible.com/) role for
 [Hubot](http://hubot.github.com/), the wonderful chatting robot that is sure
 to bring your team much delight and various values of increased productivity
@@ -15,9 +20,9 @@ variables to `defaults.main.yml` file.
 This role requires a Ubuntu or CentOS based Linux host; it's known to function
 on Ubuntu and CentOS with the following software versions:
 
-* Ansible: 2.1.0.0
+* Ansible: 2.2.0.0
 * Hubot: GitHub Master
-* Node.js: 4.4.7
+* Node.js: 6.9.1
 * CentOS: 6
 * Ubuntu: 14.04, 13.10, 13.04, 12.10, 12.04
 
