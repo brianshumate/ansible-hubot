@@ -181,3 +181,7 @@
 - Add metrics
 - Workaround issue with Ansible npm module [GH-2128]
 - Update README
+
+## v1.8.1
+
+- Add initial tests / Travis
